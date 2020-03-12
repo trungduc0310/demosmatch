@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/itempagefriend_avt"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User name 1"
+            android:id="@+id/itempagefriend_tv_username"
+            android:textSize="18sp"/>
+        <TextView
+            android:textSize="10dp"
+            android:textColor="#9c9c9c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10-11-209"
+            android:id="@+id/itempagefriend_tv_ngaythang"/>
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiêu đề bài biết"
+            android:id="@+id/itempagefriend_tv_tieudebv"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#33b5e6"
+            android:text="Nội dung bài viết"
+            android:id="@+id/itempagefriend_tv_noidungbv"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bình luận"
+        android:textColor="#FF737373"
+        android:textSize="12sp"
+        android:background="@drawable/btn_binhluan"
+        android:id="@+id/itempagefriend_btn_binhluan"
+        android:layout_marginBottom="30dp"/>
+
+</LinearLayout>

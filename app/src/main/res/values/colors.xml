@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00cccb</color>
+    <color name="colorPrimaryDark">#00cccb</color>
+    <color name="colorAccent">#007d7d7d</color>
+    <color name="background_dangky_action">#9300cccb</color>
+</resources>

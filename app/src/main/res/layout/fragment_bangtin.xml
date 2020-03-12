@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_binhluan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/img_bangtin_useravt"/>
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bạn muốn đăng gì?"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/edt_bangtin_dangbai"/>
+        <ImageButton
+            android:background="#00ffffff"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/picture_icon"
+            android:id="@+id/btnimg_bangtin_themhinhanh"
+            />
+    </LinearLayout>
+    <ListView
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_binhluan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_dsbangtin"
+        android:padding="10dp"></ListView>
+</LinearLayout>
