@@ -59,7 +59,8 @@ public class AdapterBangtin extends ArrayAdapter<Baiviet> {
         viewHolder.tvdate.setText(mList.get(position).getDatetime());
         Picasso.with(mContext).load(mList.get(position).getAvt())
                 .error(R.drawable.ic_launcher_background)
-                .placeholder(R.drawable.ic_launcher_foreground).into(viewHolder.imgavt);
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .into(viewHolder.imgavt);
         viewHolder.tvuser.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
