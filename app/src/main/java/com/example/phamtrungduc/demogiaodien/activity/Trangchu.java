@@ -2,6 +2,7 @@ package com.example.phamtrungduc.demogiaodien.activity;
 
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,10 +12,12 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.andremion.counterfab.CounterFab;
 import com.example.phamtrungduc.demogiaodien.R;
 import com.example.phamtrungduc.demogiaodien.adapter.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -24,6 +27,7 @@ public class Trangchu extends AppCompatActivity {
 
     ViewPager mviewPager;
     TabLayout mTablayout;
+    //CounterFab counterFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +39,13 @@ public class Trangchu extends AppCompatActivity {
 
     }
 
+
     private void Anhxa() {
         mviewPager=findViewById(R.id.container);
         mTablayout=findViewById(R.id.tabs);
+       // counterFab=findViewById(R.id.counterFab);
+
+       // counterFab.setCount(5);
         FragmentManager fragmentManager= getSupportFragmentManager();
         PagerAdapter adapter= new com.example.phamtrungduc.demogiaodien.adapter.PagerAdapter(fragmentManager);
         mviewPager.setAdapter(adapter);
@@ -47,6 +55,7 @@ public class Trangchu extends AppCompatActivity {
 
         mTablayout.setTabsFromPagerAdapter(adapter);
         mTablayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mviewPager));
+
     }
 
 
