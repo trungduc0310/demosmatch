@@ -1,16 +1,17 @@
 package com.example.phamtrungduc.demogiaodien.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.MenuItem;
 
 import com.example.phamtrungduc.demogiaodien.R;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Thembaiviet extends AppCompatActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_dangbaiviet);
         super.onCreate(savedInstanceState);
         ActionBar actionBar=  getSupportActionBar();

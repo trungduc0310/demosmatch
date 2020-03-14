@@ -1,15 +1,14 @@
 package com.example.phamtrungduc.demogiaodien.adapter;
 
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-
 import com.example.phamtrungduc.demogiaodien.fragment.Bangtin;
 import com.example.phamtrungduc.demogiaodien.fragment.Danhsachsanbong;
 import com.example.phamtrungduc.demogiaodien.fragment.Thongbao;
 import com.example.phamtrungduc.demogiaodien.fragment.Tuychon;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(FragmentManager fm) {

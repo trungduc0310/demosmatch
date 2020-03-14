@@ -2,9 +2,7 @@ package com.example.phamtrungduc.demogiaodien.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +19,8 @@ import com.example.phamtrungduc.demogiaodien.entity.Baiviet;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
 
 
 public class Bangtin extends Fragment {
@@ -44,9 +44,8 @@ public class Bangtin extends Fragment {
         dsbaiviet.add(new Baiviet("http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png","Thủy Tiên","26/08/2019","Tiêu đề","Xin chào mọi người9"));
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_bangtin,container,false);
         imgavtuser=view.findViewById(R.id.img_bangtin_useravt);
         edtdangbai=view.findViewById(R.id.edt_bangtin_dangbai);

@@ -2,7 +2,7 @@ package com.example.phamtrungduc.demogiaodien.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.demogiaodien.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Dangnhap extends AppCompatActivity {
     Button btndangnhap;

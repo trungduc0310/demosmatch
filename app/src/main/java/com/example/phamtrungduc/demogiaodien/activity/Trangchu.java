@@ -1,17 +1,7 @@
 package com.example.phamtrungduc.demogiaodien.activity;
 
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +12,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.demogiaodien.R;
+import com.example.phamtrungduc.demogiaodien.adapter.PagerAdapter;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 public class Trangchu extends AppCompatActivity {
 

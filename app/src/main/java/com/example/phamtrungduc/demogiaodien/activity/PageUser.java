@@ -2,7 +2,7 @@ package com.example.phamtrungduc.demogiaodien.activity;
 
 import android.app.ActionBar;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.phamtrungduc.demogiaodien.R;
 import com.example.phamtrungduc.demogiaodien.entity.Baiviet;
 import com.squareup.picasso.Picasso;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PageUser extends AppCompatActivity {
     TextView tvusername;
@@ -20,7 +22,7 @@ public class PageUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pageuser);
-        android.support.v7.app.ActionBar actionBar= getSupportActionBar();
+        androidx.appcompat.app.ActionBar actionBar= getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         AnhXa();
         getTrangcanhan();
