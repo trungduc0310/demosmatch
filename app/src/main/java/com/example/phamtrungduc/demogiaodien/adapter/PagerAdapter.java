@@ -50,7 +50,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 title="Bảng tin";
                 break;
             case 1:
-                title="Danh sách sân bóng";
+                title="Sân bóng";
                 break;
             case 2:
                 title="Thông báo";
@@ -61,4 +61,5 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         }
         return title;
     }
+
 }

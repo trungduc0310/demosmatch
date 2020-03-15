@@ -2,9 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <ListView
+    android:orientation="vertical"
+    android:padding="10dp">
+    <ScrollView
+        android:focusable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lv_dstuychon"></ListView>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_margin="5dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_account"
+                    android:id="@+id/img_tuychon_avt"/>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:textSize="18sp"
+                        android:id="@+id/tv_tuychon_name"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_tuychon_viewprofile"
+                        android:text="Xem trang cá nhân của bạn"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng xuất"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_forward_black_24dp"
+                android:drawableStart="@drawable/ic_forward_black_24dp"
+                />
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
 </LinearLayout>

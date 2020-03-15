@@ -11,6 +11,7 @@
         android:orientation="horizontal"
         android:padding="10dp">
         <ImageView
+            android:src="@drawable/ic_account"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/img_bangtin_useravt"/>
@@ -26,7 +27,7 @@
             android:background="#00ffffff"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/picture_icon"
+            android:src="@drawable/ic_image_black_24dp"
             android:id="@+id/btnimg_bangtin_themhinhanh"
             />
     </LinearLayout>
