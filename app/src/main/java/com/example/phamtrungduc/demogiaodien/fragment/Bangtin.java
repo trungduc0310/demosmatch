@@ -28,7 +28,7 @@ public class Bangtin extends Fragment {
     EditText edtdangbai;
     ImageButton ibtndangbai;
     ListView lvbangtin;
-    List<Baiviet> dsbaiviet=new ArrayList<>();
+    public static List<Baiviet> dsbaiviet=new ArrayList<>();
     AdapterBangtin adapter;
     public Bangtin() {
     }
