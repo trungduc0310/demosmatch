@@ -31,11 +31,13 @@
             android:hint="Email"
             android:id="@+id/edt_dangky_email"/>
         <EditText
+            android:inputType="textPassword"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Mật khẩu"
             android:id="@+id/edt_dangky_matkhau"/>
         <EditText
+            android:inputType="textPassword"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Nhập lại mật khẩu"
@@ -46,6 +48,7 @@
         android:layout_height="match_parent"
         android:padding="10dp">
         <Button
+            android:id="@+id/btn_dangky_dangky"
             android:layout_centerInParent="true"
             android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.phamtrungduc.demogiaodien.R;
 import com.example.phamtrungduc.demogiaodien.activity.Dangnhap;
 import com.example.phamtrungduc.demogiaodien.activity.DoiPass;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,8 @@ import androidx.fragment.app.Fragment;
 public class Tuychon extends Fragment {
     LinearLayout linearLayout;
     TextView tv_logout,tv_changepass;
+
+    FirebaseAuth mAuth;
     public Tuychon() {
     }
 
@@ -53,6 +56,7 @@ public class Tuychon extends Fragment {
     }
 
     private void Logout() {
+        mAuth.signOut();
         startActivity(new Intent(getContext(),Dangnhap.class));
     }
 
@@ -64,5 +68,6 @@ public class Tuychon extends Fragment {
         linearLayout=view.findViewById(R.id.ln_fragmenttuychon_viewprifile);
         tv_logout=view.findViewById(R.id.tv_tuychon_logout);
         tv_changepass=view.findViewById(R.id.tv_tuychon_changepass);
+        mAuth=FirebaseAuth.getInstance();
     }
 }
