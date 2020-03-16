@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingEnd="35dp"
+    android:paddingStart="35dp"
     tools:context=".activity.Dangnhap"
-    android:background="#c7fdff"
+    android:background="@drawable/background"
     android:padding="15dp">
     <ScrollView
         android:layout_width="match_parent"
@@ -16,6 +18,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="15dp"
             android:orientation="vertical">
             <!--<ImageView-->
                 <!--android:layout_width="100dp"-->
@@ -25,25 +28,66 @@
 
                 <!--android:src="@drawable/ic_launcher_background"/>
                 -->
+            <ImageView
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:src="@drawable/footballicon"
+                android:layout_gravity="center">
+
+            </ImageView>
             <TextView
-                android:layout_margin="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:layout_gravity="center"
+                android:text="Smatch"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="#000">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
                 android:layout_gravity="center"
                 android:text="Đăng nhập"
-                android:textColor="#569b8d"/>
+                android:textColor="#FF9800"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#EBFDFDFD"
+                android:fontFamily="serif">
+
+            </TextView>
+
+
             <EditText
-                android:layout_margin="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:id="@+id/edt_dangnhap_email"/>
+                android:id="@+id/edt_dangnhap_email"
+                />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mật khẩu:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#EBFDFDFD"
+                android:fontFamily="serif">
+
+            </TextView>
+
             <EditText
-                android:layout_margin="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mật khẩu"
                 android:id="@+id/edt_dangnhap_matkhau"
                 android:inputType="textPassword"/>
             <Button
@@ -51,6 +95,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đăng nhập"
+                android:textStyle="bold"
+                android:fontFamily="serif"
                 android:layout_gravity="center"
                 android:background="@drawable/btn_dangnhap"
                 android:paddingLeft="10dp"
@@ -58,16 +104,20 @@
                 android:textColor="#ffffff"
                 android:layout_margin="10dp"/>
             <TextView
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#7b848d"
-                android:text="Bạn chưa có tài khoản"
+                android:textColor="#FFFFFF"
+                android:text="Bạn chưa có tài khoản?"
+                android:fontFamily="serif"
+                android:textStyle="bold"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đăng ký ngay"
-                android:textColor="#000eda"
+                android:textColor="#FFC107"
+                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:id="@+id/tv_dangky"/>
             <RelativeLayout
@@ -86,8 +136,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quên mật khẩu"
-                        android:layout_marginTop="30dp"
+                        android:text="Quên mật khẩu?"
+                        android:textColor="#E71010"
+                        android:layout_marginTop="20dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>
                 </LinearLayout>
 
