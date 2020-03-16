@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "598586462115",
+    "firebase_url": "https://demosmatch-733f5.firebaseio.com",
+    "project_id": "demosmatch-733f5",
+    "storage_bucket": "demosmatch-733f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598586462115:android:c8cb90ac86be11efd1d416",
+        "android_client_info": {
+          "package_name": "com.example.phamtrungduc.demogiaodien"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598586462115-jgvrrd1g6ocdcobl2rqbqffkq7rvd4or.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phamtrungduc.demogiaodien",
+            "certificate_hash": "bc8c70e7a3ae9828fb5efdf6e8a2fb2960da01d7"
+          }
+        },
+        {
+          "client_id": "598586462115-0sqbh20v2s5rgtnvthnpcokddo56ub2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phamtrungduc.demogiaodien",
+            "certificate_hash": "0f388e0cd466d64313d05a594b799702ba579551"
+          }
+        },
+        {
+          "client_id": "598586462115-i31f2ik105fdpdu8c1nlk5bec9e633lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChifENdpnFZMxfLSDfZaAykv3NfPVpcdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598586462115-i31f2ik105fdpdu8c1nlk5bec9e633lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
