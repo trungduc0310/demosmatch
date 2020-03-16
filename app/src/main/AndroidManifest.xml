@@ -12,20 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Trangchu">
+        <activity
+            android:name=".activity.Dangnhap"
+            android:label="@string/title_activity_trangchu"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.Dangnhap"
-            android:label="@string/title_activity_trangchu"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.Trangchu"/>
         <activity android:name=".activity.Dangky" />
         <activity android:name=".activity.Thembaiviet" />
         <activity android:name=".activity.PageUser"></activity>
+        <activity android:name=".activity.DoiPass"></activity>
 
     </application>
 

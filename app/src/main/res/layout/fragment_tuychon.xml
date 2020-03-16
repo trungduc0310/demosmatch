@@ -13,6 +13,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
+                android:id="@+id/ln_fragmenttuychon_viewprifile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -45,6 +46,17 @@
                 </LinearLayout>
             </LinearLayout>
             <TextView
+                android:id="@+id/tv_tuychon_changepass"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đổi mật khẩu"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp" />
+            <TextView
+                android:id="@+id/tv_tuychon_logout"
                 android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

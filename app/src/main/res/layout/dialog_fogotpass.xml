@@ -5,42 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
-    android:background="#c7fdff"
     >
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quên mật khẩu"
-        android:layout_weight="0"
-        android:layout_gravity="center"
-        android:textSize="28sp"
-        android:textColor="#63ad9e"/>
+
 
     <LinearLayout
+        android:background="#c7fdff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="50dp">
-
+        android:orientation="vertical"
+        android:padding="20dp">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lấy lại mật khẩu"
+            android:layout_weight="0"
+            android:layout_gravity="center"
+            android:textSize="28sp"
+            android:textColor="#569b8d"/>
         <EditText
+            android:layout_margin="10dp"
             android:id="@+id/edt_quenpass"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"/>
+            android:hint="Email" />
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/btn_forgotpass"
+            android:text="OK"
+            android:background="#419aff"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content">
+        </Button>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_quenpass"
-        android:text="OK"
-        android:background="#c7fdff"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </Button>
 
 
 </LinearLayout>
