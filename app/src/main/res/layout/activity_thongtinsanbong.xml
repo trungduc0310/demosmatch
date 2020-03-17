@@ -10,6 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thông tin sân bóng"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="serif"
         android:textSize="22sp"/>
 
     <LinearLayout
