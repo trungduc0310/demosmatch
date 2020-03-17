@@ -2,6 +2,6 @@
 <resources>
     <color name="colorPrimary">#00cccb</color>
     <color name="colorPrimaryDark">#00cccb</color>
-    <color name="colorAccent">#007d7d7d</color>
+    <color name="colorAccent">#ffce40</color>
     <color name="background_dangky_action">#9300cccb</color>
 </resources>
