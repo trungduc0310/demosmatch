@@ -71,6 +71,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#F32020"
                 android:id="@+id/edt_dangnhap_email"
                 />
             <TextView
@@ -88,12 +89,13 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#F32020"
                 android:id="@+id/edt_dangnhap_matkhau"
                 android:inputType="textPassword"/>
             <Button
                 android:id="@+id/btn_dangnhap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
                 android:text="Đăng nhập"
                 android:textStyle="bold"
                 android:fontFamily="serif"
@@ -112,11 +114,13 @@
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
-            <TextView
+            <Button
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng ký ngay"
-                android:textColor="#FFC107"
+                android:background="@drawable/btn_dangky"
+                android:text="Đăng ký"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:id="@+id/tv_dangky"/>
@@ -137,8 +141,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Quên mật khẩu?"
-                        android:textColor="#E71010"
-                        android:layout_marginTop="20dp"
+                        android:textColor="#CA0909"
+                        android:fontFamily="serifn"
+                        android:textStyle="italic"
+                        android:layout_marginTop="15dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>
                 </LinearLayout>
 
