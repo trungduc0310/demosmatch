@@ -12,16 +12,29 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
+    android:background="#88EB81"
     android:padding="3dp">
-    <EditText
-        android:layout_weight="20"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Tìm kiếm"
-        android:background="@drawable/edt_timkiem"
-        android:gravity="center"
-        android:id="@+id/trangchu_timkiem"
-        android:textIsSelectable="false"/>
+        android:orientation="horizontal"
+        android:layout_weight="1">
+    <ImageView
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:src="@drawable/footballicon">
+
+    </ImageView>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textSize="20sp"
+            android:text="Smatch"></TextView>
+    </LinearLayout>
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"

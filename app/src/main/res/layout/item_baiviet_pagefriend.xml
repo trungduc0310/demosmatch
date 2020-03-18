@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="#AFF1C3"
     android:orientation="vertical"
 
     >
@@ -24,11 +26,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="User name 1"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
+            android:fontFamily="serif"
             android:id="@+id/itempagefriend_tv_username"
             android:textSize="18sp"/>
         <TextView
             android:textSize="10dp"
-            android:textColor="#9c9c9c"
+            android:textColor="#3A3434"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10-11-209"
@@ -36,6 +41,7 @@
     </LinearLayout>
 </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -43,23 +49,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tiêu đề bài biết"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="#1A1717"
             android:id="@+id/itempagefriend_tv_tieudebv"
             />
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="#33b5e6"
+            android:fontFamily="serif"
+            android:background="#41D64D"
             android:text="Nội dung bài viết"
             android:id="@+id/itempagefriend_tv_noidungbv"
             android:textColor="#ffffff"/>
     </LinearLayout>
     <Button
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Bình luận"
-        android:textColor="#FF737373"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:fontFamily="serif"
         android:textSize="12sp"
         android:background="@drawable/btn_binhluan"
         android:id="@+id/itempagefriend_btn_binhluan"

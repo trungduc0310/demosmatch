@@ -4,13 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#ccffff">
+    android:background="@drawable/backgroundgreen2">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"></View>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Thông tin sân bóng"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="#F44336"
+        android:fontFamily="serif"
+        android:textSize="25sp"/>
         android:textSize="22sp"/>
+
 
     <LinearLayout
         android:layout_margin="5dp"
@@ -30,25 +40,35 @@
             android:layout_width="150dp"
             android:layout_height="150dp" />
     </LinearLayout>
-
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:background="@drawable/vien"
+        android:padding="15dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tên sân: "
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:fontFamily="serif"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_thongtinsanbong_tensan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
+            android:textColor="#B44343"
             android:textSize="18sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -59,6 +79,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:fontFamily="serif"
             android:text="Loại sân: "
             android:textSize="18sp" />
 
@@ -66,7 +90,8 @@
             android:id="@+id/tv_thongtinsanbong_loaisan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="#B44343"/>
     </LinearLayout>
 
     <LinearLayout
@@ -78,19 +103,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Đánh giá: "
+            android:textColor="#FFFFFF"
+            android:fontFamily="serif"
+            android:textStyle="bold"
             android:textSize="18sp" />
 
         <RatingBar
             android:id="@+id/rating_thongtinsanbong_danhgia"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
     <View
-        android:layout_margin="10dp"
-        android:layout_width="fill_parent"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#CD737373"/>
+        android:background="#E2EC171E"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -100,6 +130,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:fontFamily="serif"
             android:text="Tên chủ sân: "
             android:textSize="18sp" />
 
@@ -107,6 +140,8 @@
             android:id="@+id/tv_thongtinsanbong_tenchusan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#B44343"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
@@ -117,6 +152,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:fontFamily="serif"
             android:text="Địa chỉ: "
             android:textSize="18sp" />
 
@@ -124,6 +163,8 @@
             android:id="@+id/tv_thongtinsanbong_diachisan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#B44343"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
@@ -135,27 +176,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Số điện thoại: "
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:fontFamily="serif"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_thongtinsanbong_sodienthoai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#B44343"
             android:textSize="18sp" />
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
-        >
+
+    </LinearLayout>
         <Button
             android:textStyle="bold"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Liên hệ đặt sân ngay"
+            android:text="Liên hệ đặt sân"
             android:textColor="#ffffff"
+            android:fontFamily="serif"
             android:id="@+id/btn_thongtinsanbong_lienhengay"
-            android:background="@drawable/btn_lienhengay"
-            android:layout_alignParentBottom="true"/>
-    </RelativeLayout>
+            android:background="@drawable/btn_dangnhap"
+            android:layout_marginTop="40dp"/>
 </LinearLayout>
