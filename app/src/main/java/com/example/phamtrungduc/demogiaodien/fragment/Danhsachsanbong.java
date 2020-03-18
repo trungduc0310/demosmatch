@@ -1,16 +1,19 @@
 package com.example.phamtrungduc.demogiaodien.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.phamtrungduc.demogiaodien.R;
+import com.example.phamtrungduc.demogiaodien.activity.ThongtinSanbong;
 import com.example.phamtrungduc.demogiaodien.adapter.AdapterDanhsachsanbong;
 import com.example.phamtrungduc.demogiaodien.entity.Sanbong;
 
@@ -37,6 +40,16 @@ public class Danhsachsanbong extends Fragment {
         dssanbong.add(new Sanbong("Thiên Trường 3","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
         dssanbong.add(new Sanbong("Thiên Trường 4","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
         dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
+        dssanbong.add(new Sanbong("Thiên Trường 5","Nam Định","0966541248","http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/96/man-icon.png"));
     }
     public void fakedata2(){
         dskhuvuc.add("Hoàng Mai");
@@ -56,10 +69,17 @@ public class Danhsachsanbong extends Fragment {
         fakedata2();
         adapter=new AdapterDanhsachsanbong(getContext(),R.layout.item_fragment_dssanbong,dssanbong);
         lvdssanbong.setAdapter(adapter);
+        lvdssanbong.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getContext(),ThongtinSanbong.class));
+            }
+        });
 
         adapterkhuvuc= new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,dskhuvuc);
         adapterkhuvuc.setDropDownViewResource(android.R.layout.simple_list_item_1);
         spinnerKhuvuc.setAdapter(adapterkhuvuc);
+
         return view;
 
     }

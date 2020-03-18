@@ -19,6 +19,8 @@
         android:textColor="#F44336"
         android:fontFamily="serif"
         android:textSize="25sp"/>
+        android:textSize="22sp"/>
+
 
     <LinearLayout
         android:layout_margin="5dp"

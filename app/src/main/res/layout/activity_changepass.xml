@@ -17,6 +17,7 @@
         android:padding="16dp"
 
         android:layout_marginTop="40dp">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -24,6 +25,7 @@
             android:layout_gravity="center">
 
         </ImageView>
+
         <TextView
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -49,6 +51,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="#FFF"
             android:id="@+id/edt_doipass_passcu"
             />
         <TextView
@@ -66,6 +69,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="#FFF"
             android:id="@+id/edt_doipass_passmoi"/>
         <TextView
             android:layout_marginTop="20dp"
@@ -82,6 +86,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="#FFF"
             android:id="@+id/edt_doipass_xacnhanmoi"/>
 
 

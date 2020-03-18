@@ -1,6 +1,7 @@
 package com.example.phamtrungduc.demogiaodien.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,14 +45,14 @@ public class AdapterDanhsachsanbong extends ArrayAdapter<Sanbong> {
             viewHolder.tvdiachi=convertView.findViewById(R.id.tv_item_dssanbong_diachi);
             viewHolder.tvtensan=convertView.findViewById(R.id.tv_item_dssanbong_tensan);
             viewHolder.imgavt=convertView.findViewById(R.id.img_item_dssanbong_hinhanh);
-
+            //viewHolder.imgcall=convertView.findViewById(R.id.ibtn_item_dssanbong_lienlac);
             convertView.setTag(viewHolder);
 
         }
         else {
             viewHolder= (ViewHolder) convertView.getTag();
         }
-        viewHolder.imgcall=convertView.findViewById(R.id.ibtn_item_dssanbong_lienlac);
+
         viewHolder.tvsdt.setText("Số điện thoại: "+mList.get(position).getSdt());
         viewHolder.tvtensan.setText(mList.get(position).getTensan());
         viewHolder.tvdiachi.setText("Địa chỉ: "+mList.get(position).getDiachi());
@@ -59,12 +60,12 @@ public class AdapterDanhsachsanbong extends ArrayAdapter<Sanbong> {
                 error(R.drawable.ic_launcher_background)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(viewHolder.imgavt);
-        viewHolder.imgcall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "Số điện thoại: "+mList.get(position).getSdt(), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        viewHolder.imgcall.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(mContext, "Số điện thoại: "+mList.get(position).getSdt(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
         return convertView;
     }
 }

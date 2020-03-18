@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.phamtrungduc.demogiaodien.R;
 import com.example.phamtrungduc.demogiaodien.adapter.AdapterThongbao;
@@ -31,6 +33,7 @@ public class Thongbao extends Fragment {
         lv_dsthongbao=view.findViewById(R.id.lv_dsthongbao);
         adapterThongbao= new AdapterThongbao(getContext(),R.layout.item_fragment_thongbao,Bangtin.dsbaiviet);
         lv_dsthongbao.setAdapter(adapterThongbao);
+
     }
 
 
