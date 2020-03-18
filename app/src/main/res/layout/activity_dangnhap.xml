@@ -144,7 +144,7 @@
                         android:textColor="#CA0909"
                         android:fontFamily="serifn"
                         android:textStyle="italic"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="5dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>
                 </LinearLayout>
 

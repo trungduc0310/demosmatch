@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#c7fdff"
+    android:background="@drawable/background"
     >
 
 
@@ -14,44 +14,96 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="16dp"
 
         android:layout_marginTop="40dp">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/keysicon"
+            android:layout_gravity="center">
+
+        </ImageView>
         <TextView
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đổi Mật Khẩu"
+            android:text="Đổi mật khẩu"
+            android:textStyle="bold"
+            android:fontFamily="serif"
             android:layout_gravity="center"
             android:textSize="28sp"
-            android:textColor="#569b8d"/>
+            android:textColor="#FF5722"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mật khẩu hiện tại:"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:fontFamily="serif"
+            android:textColor="#F44336">
+
+        </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Mật khẩu cũ"
             android:inputType="textPassword"
             android:id="@+id/edt_doipass_passcu"
             />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mật khẩu mới:"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:fontFamily="serif"
+            android:textColor="#F44336">
+
+        </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Mật khẩu mới"
             android:inputType="textPassword"
             android:id="@+id/edt_doipass_passmoi"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập lại mật khẩu mới:"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:fontFamily="serif"
+            android:textColor="#F44336">
+
+        </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập lại mật khẩu mới"
             android:inputType="textPassword"
             android:id="@+id/edt_doipass_xacnhanmoi"/>
+
+
+        <CheckBox
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#FF5722"
+            android:text="Hiện mật khẩu">
+
+        </CheckBox>
         <Button
-            android:padding="5dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/btn_doipass"
             android:text="Đổi mật khẩu"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:fontFamily="serif"
             android:layout_gravity="center"
-            android:background="#419aff"
-            android:layout_width="wrap_content"
+            android:background="@drawable/btn_dangnhap"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </Button>

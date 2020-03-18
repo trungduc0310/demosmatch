@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#97E9F8"
     android:padding="10dp">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -17,21 +18,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:text="User name 1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="#FF5722"
             android:textSize="20sp"
             android:id="@+id/tv_pageuser_username"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#cd737373"
+        android:background="#EB0D2D"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Bài viết"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="#FF9800"
         android:textSize="22sp"
         android:layout_margin="8dp"
         />

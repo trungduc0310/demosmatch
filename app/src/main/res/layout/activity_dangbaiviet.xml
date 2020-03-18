@@ -34,9 +34,10 @@
 
             <Button
                 android:layout_margin="10dp"
-                android:background="@drawable/btn_dangbaiviet"
+                android:background="@drawable/btn_binhluan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="Đăng"
                 android:textColor="#ffffff"
                 android:textStyle="bold"

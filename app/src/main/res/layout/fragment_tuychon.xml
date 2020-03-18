@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundgreen"
     android:orientation="vertical"
     android:padding="10dp">
     <ScrollView
@@ -35,17 +36,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textColor="#534D4D"
                         android:textSize="18sp"
                         android:id="@+id/tv_tuychon_name"/>
                     <TextView
                         android:textSize="16sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#574444"
                         android:id="@+id/tv_tuychon_viewprofile"
                         android:text="Xem trang cá nhân của bạn"/>
+
                 </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFF">
+
+            </View>
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/tv_tuychon_changepass"
                 android:padding="5dp"
                 android:layout_width="match_parent"
@@ -56,6 +69,7 @@
                 android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp" />
             <TextView
+                android:layout_marginTop="5dp"
                 android:id="@+id/tv_tuychon_logout"
                 android:padding="5dp"
                 android:layout_width="match_parent"
