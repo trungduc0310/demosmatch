@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +29,6 @@ public class Dangnhap extends AppCompatActivity {
     Button btndangnhap;
     TextView tvdangky,tvforgotpass;
     EditText edtemail, edtpass;
-    ImageButton btnfacebook;
 
     FirebaseAuth mAuth;
 
@@ -36,10 +36,10 @@ public class Dangnhap extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangnhap);
-
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.hide();
         Anhxa();
         Xulysukien();
-
 
     }
 
@@ -110,7 +110,6 @@ public class Dangnhap extends AppCompatActivity {
         tvforgotpass=findViewById(R.id.tv_dangnhap_forgotpass);
         edtemail=findViewById(R.id.edt_dangnhap_email);
         edtpass=findViewById(R.id.edt_dangnhap_matkhau);
-        btnfacebook=findViewById(R.id.imgbtn_facebook);
         mAuth=FirebaseAuth.getInstance();
     }
 

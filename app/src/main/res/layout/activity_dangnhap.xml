@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingEnd="35dp"
-    android:paddingStart="35dp"
     tools:context=".activity.Dangnhap"
-    android:background="@drawable/background"
-    android:padding="15dp">
+    android:background="@drawable/background">
     <ScrollView
+        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true">
@@ -18,7 +16,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:padding="10dp"
             android:orientation="vertical">
             <!--<ImageView-->
                 <!--android:layout_width="100dp"-->
@@ -43,7 +41,6 @@
                 android:fontFamily="casual"
                 android:textStyle="bold"
                 android:textColor="#000">
-
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
@@ -144,7 +141,7 @@
                         android:textColor="#CA0909"
                         android:fontFamily="serifn"
                         android:textStyle="italic"
-                        android:layout_marginTop="15dp"
+                        android:layout_margin="15dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>
                 </LinearLayout>
 

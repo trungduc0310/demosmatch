@@ -66,8 +66,18 @@ public class Dangky extends AppCompatActivity {
                         if (!task.isSuccessful()){
                             Toast.makeText(Dangky.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(Dangky.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Dangky.this,Dangnhap.class));
+                            mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(Dangky.this, "Vui lòng kiểm tra email để xác thực tài khoản", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Dangky.this,Dangnhap.class);
+                                        startActivity(intent);
+                                    }else {
+                                        Toast.makeText(Dangky.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         }
                     }
                 });

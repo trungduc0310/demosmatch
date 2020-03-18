@@ -39,7 +39,7 @@ public class Trangchu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
         ActionBar actionBar=getSupportActionBar();
-        //actionBar.hide();
+        actionBar.hide();
         Kiemtradangnhap();
         Anhxa();
 

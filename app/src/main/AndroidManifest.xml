@@ -14,7 +14,7 @@
         <activity
             android:name=".activity.Trangchu"
             android:label="@string/title_activity_trangchu"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Dangnhap" />
-        <activity android:name=".activity.Dangky" />
+        <activity android:name=".activity.Dangky"
+            android:label=""/>
         <activity android:name=".activity.Thembaiviet" />
         <activity android:name=".activity.PageUser" />
         <activity android:name=".activity.DoiPass" />
