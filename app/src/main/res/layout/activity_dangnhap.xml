@@ -5,32 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingEnd="35dp"
-    android:paddingStart="35dp"
     tools:context=".activity.Dangnhap"
-    android:background="@drawable/background"
-    android:padding="15dp">
+    android:gravity="center"
+    android:background="@drawable/background">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true">
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:orientation="vertical">
-            <!--<ImageView-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_marginTop="35dp"-->
-
-                <!--android:src="@drawable/ic_launcher_background"/>
-                -->
             <ImageView
-                android:layout_width="200px"
-                android:layout_height="200px"
+                android:layout_marginTop="15dp"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:src="@drawable/footballicon"
                 android:layout_gravity="center">
 
@@ -48,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:fontFamily="serif"
                 android:layout_gravity="center"
@@ -60,7 +50,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email:"
-                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#EBFDFDFD"
                 android:fontFamily="serif">
@@ -69,9 +58,10 @@
 
 
             <EditText
+                android:drawableLeft="@drawable/ic_account_white"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#F32020"
+                android:textColor="#ffffff"
                 android:id="@+id/edt_dangnhap_email"
                 />
             <TextView
@@ -79,7 +69,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mật khẩu:"
-                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#EBFDFDFD"
                 android:fontFamily="serif">
@@ -87,24 +76,36 @@
             </TextView>
 
             <EditText
+                android:drawableLeft="@drawable/ic_lock_white24dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#F32020"
+                android:textColor="#ffffff"
                 android:id="@+id/edt_dangnhap_matkhau"
                 android:inputType="textPassword"/>
-            <Button
-                android:id="@+id/btn_dangnhap"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:text="Đăng nhập"
-                android:textStyle="bold"
-                android:fontFamily="serif"
+            <RelativeLayout
+                android:gravity="center"
                 android:layout_gravity="center"
-                android:background="@drawable/btn_dangnhap"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColor="#ffffff"
-                android:layout_margin="10dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_dangnhap"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:text="Đăng nhập"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:background="@drawable/btn_dangnhap"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#ffffff"
+                    android:layout_margin="10dp"/>
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/progress_dangnhap"/>
+            </RelativeLayout>
+
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
@@ -114,13 +115,12 @@
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
-            <Button
+            <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_dangky"
-                android:text="Đăng ký"
-                android:textColor="#FFFFFF"
+                android:text="Đăng ký ngay"
+                android:textColor="#00ffd9"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:id="@+id/tv_dangky"/>
@@ -136,18 +136,16 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerInParent="true">
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quên mật khẩu?"
+                        android:text="Quên mật khẩu"
                         android:textColor="#CA0909"
                         android:fontFamily="serifn"
                         android:textStyle="italic"
                         android:layout_marginTop="15dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>
                 </LinearLayout>
-
 
             </RelativeLayout>
         </LinearLayout>

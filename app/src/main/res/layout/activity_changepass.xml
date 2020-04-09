@@ -5,37 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     >
-
-
-
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center|left">
+        <ImageView
+            android:id="@+id/_img_changepass_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="#00cccb"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-
-        android:layout_marginTop="40dp">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/keysicon"
-            android:layout_gravity="center">
-
-        </ImageView>
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đổi mật khẩu"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:layout_gravity="center"
-            android:textSize="28sp"
-            android:textColor="#FF5722"/>
+        android:padding="10dp">
         <TextView
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
@@ -44,14 +39,13 @@
             android:textStyle="bold"
             android:textSize="17sp"
             android:fontFamily="serif"
-            android:textColor="#F44336">
+            android:textColor="#000000">
 
         </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="#FFF"
             android:id="@+id/edt_doipass_passcu"
             />
         <TextView
@@ -62,14 +56,13 @@
             android:textStyle="bold"
             android:textSize="17sp"
             android:fontFamily="serif"
-            android:textColor="#F44336">
+            android:textColor="#000000">
 
         </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="#FFF"
             android:id="@+id/edt_doipass_passmoi"/>
         <TextView
             android:layout_marginTop="20dp"
@@ -79,39 +72,48 @@
             android:textStyle="bold"
             android:textSize="17sp"
             android:fontFamily="serif"
-            android:textColor="#F44336">
+            android:textColor="#000000">
 
         </TextView>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="#FFF"
             android:id="@+id/edt_doipass_xacnhanmoi"/>
 
 
         <CheckBox
+            android:id="@+id/cb_doipass_showpass"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:textColor="#FF5722"
+            android:textColor="#00cccb"
             android:text="Hiện mật khẩu">
 
         </CheckBox>
-        <Button
+        <RelativeLayout
             android:layout_marginTop="30dp"
-            android:id="@+id/btn_doipass"
-            android:text="Đổi mật khẩu"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_dangnhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progress_doipass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+            <Button
 
-        </Button>
+                android:id="@+id/btn_doipass"
+                android:text="Lưu mật khẩu"
+                android:background="@drawable/btn_binhluan_active"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Button>
+        </RelativeLayout>
+
     </LinearLayout>
 
 

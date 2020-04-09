@@ -1,47 +1,92 @@
 package com.example.phamtrungduc.demogiaodien.entity;
 
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Baiviet implements Serializable {
-    String avt;
-    String username;
-    String datetime;
-    String tieude;
-    String noidung;
 
-    public Baiviet() {
+    @SerializedName("idbaiviet")
+    @Expose
+    private String idbaiviet;
+    @SerializedName("emailnguoidung")
+    @Expose
+    private String emailnguoidung;
+    @SerializedName("tennguoidung")
+    @Expose
+    private String tennguoidung;
+    @SerializedName("noidung")
+    @Expose
+    private String noidung;
+    @SerializedName("thoigian")
+    @Expose
+    private String thoigian;
+    @SerializedName("tieude")
+    @Expose
+    private String tieude;
+    @SerializedName("hinhanh")
+    @Expose
+    private String hinhanh;
+    @SerializedName("anhdaidien")
+    @Expose
+    private String anhdaidien;
+
+    public String getIdbaiviet() {
+        return idbaiviet;
     }
 
-    public Baiviet(String avt, String username, String datetime, String tieude, String noidung) {
-        this.avt = avt;
-        this.username = username;
-        this.datetime = datetime;
-        this.tieude = tieude;
+    public void setIdbaiviet(String idbaiviet) {
+        this.idbaiviet = idbaiviet;
+    }
+
+    public String getEmailnguoidung() {
+        return emailnguoidung;
+    }
+
+    public void setEmailnguoidung(String emailnguoidung) {
+        this.emailnguoidung = emailnguoidung;
+    }
+
+    public String getTennguoidung() {
+        return tennguoidung;
+    }
+
+    public void setTennguoidung(String tennguoidung) {
+        this.tennguoidung = tennguoidung;
+    }
+
+    public String getNoidung() {
+        return noidung;
+    }
+
+    public void setNoidung(String noidung) {
         this.noidung = noidung;
     }
 
-    public String getAvt() {
-        return avt;
+    public String getThoigian() {
+        return thoigian;
     }
 
-    public void setAvt(String avt) {
-        this.avt = avt;
+    public void setThoigian(String thoigian) {
+        this.thoigian = thoigian;
     }
 
-    public String getUsername() {
-        return username;
+    public String getHinhanh() {
+        return hinhanh;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getAnhdaidien() {
+        return anhdaidien;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setAnhdaidien(String anhdaidien) {
+        this.anhdaidien = anhdaidien;
     }
 
     public String getTieude() {
@@ -52,11 +97,14 @@ public class Baiviet implements Serializable {
         this.tieude = tieude;
     }
 
-    public String getNoidung() {
-        return noidung;
-    }
-
-    public void setNoidung(String noidung) {
+    public Baiviet(String idbaiviet, String emailnguoidung, String tennguoidung, String noidung, String thoigian, String tieude, String hinhanh, String anhdaidien) {
+        this.idbaiviet = idbaiviet;
+        this.emailnguoidung = emailnguoidung;
+        this.tennguoidung = tennguoidung;
         this.noidung = noidung;
+        this.thoigian = thoigian;
+        this.tieude = tieude;
+        this.hinhanh = hinhanh;
+        this.anhdaidien = anhdaidien;
     }
 }

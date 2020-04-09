@@ -1,39 +1,40 @@
 package com.example.phamtrungduc.demogiaodien.entity;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Sanbong {
-    String tensan;
-    String diachi;
-    String sdt;
-    String hinhanh;
 
+    @SerializedName("id_sanbong")
+    @Expose
+    private String idSanbong;
+    @SerializedName("tensanbong")
+    @Expose
+    private String tensanbong;
+    @SerializedName("diachi")
+    @Expose
+    private String diachi;
+    @SerializedName("sodienthoai")
+    @Expose
+    private String sodienthoai;
+    @SerializedName("id_khuvuc")
+    @Expose
+    private String idKhuvuc;
 
-    public String getHinhanh() {
-        return hinhanh;
+    public String getIdSanbong() {
+        return idSanbong;
     }
 
-    public void setHinhanh(String hinhanh) {
-        this.hinhanh = hinhanh;
+    public void setIdSanbong(String idSanbong) {
+        this.idSanbong = idSanbong;
     }
 
-    public Sanbong(String tensan, String diachi, String sdt, String hinhanh) {
-
-        this.tensan = tensan;
-        this.diachi = diachi;
-        this.sdt = sdt;
-        this.hinhanh = hinhanh;
+    public String getTensanbong() {
+        return tensanbong;
     }
 
-    public Sanbong() {
-
-    }
-
-    public String getTensan() {
-
-        return tensan;
-    }
-
-    public void setTensan(String tensan) {
-        this.tensan = tensan;
+    public void setTensanbong(String tensanbong) {
+        this.tensanbong = tensanbong;
     }
 
     public String getDiachi() {
@@ -44,11 +45,27 @@ public class Sanbong {
         this.diachi = diachi;
     }
 
-    public String getSdt() {
-        return sdt;
+    public String getSodienthoai() {
+        return sodienthoai;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setSodienthoai(String sodienthoai) {
+        this.sodienthoai = sodienthoai;
+    }
+
+    public String getIdKhuvuc() {
+        return idKhuvuc;
+    }
+
+    public void setIdKhuvuc(String idKhuvuc) {
+        this.idKhuvuc = idKhuvuc;
+    }
+
+    public Sanbong(String idSanbong, String tensanbong, String diachi, String sodienthoai, String idKhuvuc) {
+        this.idSanbong = idSanbong;
+        this.tensanbong = tensanbong;
+        this.diachi = diachi;
+        this.sodienthoai = sodienthoai;
+        this.idKhuvuc = idKhuvuc;
     }
 }

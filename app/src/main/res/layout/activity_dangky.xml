@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bgrdangky">
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center|left">
+        <ImageView
+            android:id="@+id/_img_dangky_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
     <ScrollView
         android:padding="10dp"
         android:layout_width="match_parent"
@@ -14,41 +25,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_marginTop="30dp"
-                android:layout_width="200px"
-                android:layout_height="200px"
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:src="@drawable/footballicon"
                 android:layout_gravity="center">
-
             </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Smatch"
+                    android:fontFamily="casual"
+                    android:textStyle="bold"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:layout_gravity="center"
+                    android:text="Đăng ký tài khoản"
+                    android:textColor="#00cccb"/></LinearLayout>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Smatch"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:textColor="#000">
-
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="27sp"
-                android:textStyle="bold"
-                android:fontFamily="serif"
-                android:layout_gravity="center"
-                android:text="Đăng ký tài khoản"
-                android:textColor="#FF9800"/>
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_image_black_24dp"
+                    android:id="@+id/img_dangky_avt"/>
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:background="#dfdfdf"
+                    android:id="@+id/tv_dangky_chonanhdaidien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn ảnh đại diện" />
+            </LinearLayout>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:fontFamily="serif"
                 android:text="*Vui lòng điền đầy đủ thông tin:">
             </TextView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,18 +90,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tên người dùng:"
+                    android:text="Tên người dùng (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
                     android:fontFamily="serif"
-                    android:textColor="#FF5722">
+                    android:textColor="#000000">
 
                 </TextView>
-
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#B90404"
                     android:id="@+id/edt_dangky_tennguoidung"
                     />
 
@@ -76,26 +107,25 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email:"
+                    android:text="Email (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
                     android:fontFamily="serif"
-                    android:textColor="#FF5722">
+                    android:textColor="#000000">
                 </TextView>
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#B90404"
                     android:id="@+id/edt_dangky_email"/>
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mật khẩu:"
+                    android:text="Mật khẩu (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
                     android:fontFamily="serif"
-                    android:textColor="#FF5722">
+                    android:textColor="#000000">
                 </TextView>
                 <EditText
                     android:inputType="textPassword"
@@ -106,28 +136,25 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nhập lại mật khẩu:"
+                    android:text="Nhập lại mật khẩu (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
                     android:fontFamily="serif"
-                    android:textColor="#FF5722">
+                    android:textColor="#000000">
                 </TextView>
                 <EditText
                     android:inputType="textPassword"
                     android:layout_width="fill_parent"
-                    android:textColor="#B90404"
                     android:layout_height="wrap_content"
                     android:id="@+id/edt_dangky_nhaplaimatkhau"/>
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hiện mật khẩu"
-                    android:fontFamily="serif"
-                    android:textColor="#FF9800">
-
+                    android:textColor="#00cccb"
+                    android:fontFamily="serif">
                 </CheckBox>
             </LinearLayout>
-
             <Button
                 android:id="@+id/btn_dangky_dangky"
                 android:layout_width="250dp"

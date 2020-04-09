@@ -2,32 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/bgrdangky"
-    android:padding="10dp">
+    android:padding="5dp">
 
 
     <TextView
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#FF5722"
+        android:textColor="#000000"
         android:text="Danh sách sân bóng"
-        android:fontFamily="serif"
-        android:textSize="26sp"
+        android:textSize="20sp"
         android:layout_gravity="center"/>
     <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:textSize="16sp"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif"
             android:textColor="#F44336"
-            android:text="Chọn khu vực : "
+            android:text="Chọn khu vực: "
             android:layout_weight="2"/>
         <Spinner
             android:layout_weight="1"
@@ -36,9 +34,21 @@
             android:layout_height="wrap_content">
         </Spinner>
     </LinearLayout>
-    <ListView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:id="@+id/lv_dssanbong"></ListView>
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_danhsachsanbong_thongbao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không có sân bóng nào trong khu vực"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:id="@+id/lv_dssanbong"></ListView>
+    </RelativeLayout>
+
 </LinearLayout>

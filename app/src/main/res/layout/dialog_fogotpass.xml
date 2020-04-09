@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#70C6EC"
-    android:padding="30dp"
-    >
+    android:background="#00cccb"
+    android:padding="10dp">
         <TextView
             android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
@@ -15,26 +14,26 @@
             android:text="Nhập địa chỉ email để lấy lại mật khẩu"
             android:fontFamily="serif"
             android:layout_gravity="center"
-            android:textSize="18sp"
-            android:textColor="#FF5722"/>
+            android:textSize="16sp"
+            android:textColor="#ffffff"/>
         <EditText
-            android:layout_margin="10dp"
+            android:background="@drawable/btn_binhluan"
+            android:layout_margin="5dp"
+            android:padding="10dp"
             android:id="@+id/edt_quenpass"
             android:hint="Nhập email"
             android:layout_gravity="center"
-            android:textColor="#FF9800"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
             android:layout_margin="10dp"
             android:id="@+id/btn_forgotpass"
             android:text="Xác nhận"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:background="@drawable/btn_dangnhap"
+            android:background="@drawable/background_edt_find"
             android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:textColor="#00cccb"
             android:layout_height="wrap_content">
         </Button>
     </LinearLayout>

@@ -2,68 +2,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    android:background="#AFF1C3"
     android:orientation="vertical"
-
+    android:padding="5dp"
     >
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:layout_margin="10dp">
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/itempagefriend_avt"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:id="@+id/itempagefriend_avt" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginLeft="15dp">
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/itempagefriend_avt">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User name 1"
+            android:text="Trung Đức"
             android:textStyle="bold"
-            android:textColor="#FF5722"
-            android:fontFamily="serif"
+            android:textColor="#020202"
             android:id="@+id/itempagefriend_tv_username"
-            android:textSize="18sp"/>
+            android:textSize="16sp"/>
         <TextView
             android:textSize="10dp"
             android:textColor="#3A3434"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10-11-209"
+            android:text="10-11-2019"
             android:id="@+id/itempagefriend_tv_ngaythang"/>
     </LinearLayout>
-</LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtn_itembaiviet_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#00ffffff"
+        android:src="@drawable/ic_more_horiz_black_24dp" />
+
+</RelativeLayout>
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tiêu đề bài biết"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textColor="#1A1717"
-            android:id="@+id/itempagefriend_tv_tieudebv"
-            />
-        <TextView
-            android:layout_marginTop="5dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
-            android:background="#41D64D"
+            android:textColor="#000"
             android:text="Nội dung bài viết"
-            android:id="@+id/itempagefriend_tv_noidungbv"
-            android:textColor="#ffffff"/>
+            android:id="@+id/itempagefriend_tv_noidungbv" />
+        <ImageView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:maxHeight="250dp"
+            android:maxWidth="250dp"
+            android:layout_gravity="center"
+            android:id="@+id/item_img_itempagefriend_hinhanhbaiviet"
+            android:src="@drawable/ic_image_black_24dp"
+            />
     </LinearLayout>
     <Button
         android:layout_marginTop="7dp"
@@ -71,12 +76,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Bình luận"
-        android:textColor="#FFF"
+        android:textColor="#acabab"
         android:textStyle="bold"
-        android:fontFamily="serif"
         android:textSize="12sp"
         android:background="@drawable/btn_binhluan"
         android:id="@+id/itempagefriend_btn_binhluan"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" >
+    </Button>
 
 </LinearLayout>

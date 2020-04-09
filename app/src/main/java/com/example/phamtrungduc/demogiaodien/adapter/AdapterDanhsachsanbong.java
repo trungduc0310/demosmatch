@@ -22,6 +22,7 @@ public class AdapterDanhsachsanbong extends ArrayAdapter<Sanbong> {
     Context mContext;
     int mLayout;
     List<Sanbong> mList;
+    String icon_hinhanh="http://icons.iconarchive.com/icons/iconshock/soccer/256/soccer-4-icon.png";
     public AdapterDanhsachsanbong( Context context, int resource,List<Sanbong> objects) {
         super(context, resource, objects);
         mContext=context;
@@ -45,7 +46,6 @@ public class AdapterDanhsachsanbong extends ArrayAdapter<Sanbong> {
             viewHolder.tvdiachi=convertView.findViewById(R.id.tv_item_dssanbong_diachi);
             viewHolder.tvtensan=convertView.findViewById(R.id.tv_item_dssanbong_tensan);
             viewHolder.imgavt=convertView.findViewById(R.id.img_item_dssanbong_hinhanh);
-            //viewHolder.imgcall=convertView.findViewById(R.id.ibtn_item_dssanbong_lienlac);
             convertView.setTag(viewHolder);
 
         }
@@ -53,19 +53,13 @@ public class AdapterDanhsachsanbong extends ArrayAdapter<Sanbong> {
             viewHolder= (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.tvsdt.setText("Số điện thoại: "+mList.get(position).getSdt());
-        viewHolder.tvtensan.setText(mList.get(position).getTensan());
+        viewHolder.tvsdt.setText("Số điện thoại: "+mList.get(position).getSodienthoai());
+        viewHolder.tvtensan.setText(mList.get(position).getTensanbong());
         viewHolder.tvdiachi.setText("Địa chỉ: "+mList.get(position).getDiachi());
-        Picasso.with(mContext).load(mList.get(position).getHinhanh()).
-                error(R.drawable.ic_launcher_background)
-                .placeholder(R.drawable.ic_launcher_foreground)
+        Picasso.with(mContext).load(icon_hinhanh).
+                error(R.drawable.ic_broken_image_black_24dp)
+                .placeholder(R.drawable.ic_image_black_24dp)
                 .into(viewHolder.imgavt);
-//        viewHolder.imgcall.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(mContext, "Số điện thoại: "+mList.get(position).getSdt(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
         return convertView;
     }
 }

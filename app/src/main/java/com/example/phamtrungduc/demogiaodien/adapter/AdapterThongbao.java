@@ -42,7 +42,6 @@ public class AdapterThongbao extends ArrayAdapter<Baiviet> {
         }else{
             viewHolder= (ViewHolder) convertView.getTag();
         }
-        viewHolder.tv_title.setText(mlist.get(position).getTieude());
         viewHolder.tv_content.setText(mlist.get(position).getNoidung());
         return convertView;
     }

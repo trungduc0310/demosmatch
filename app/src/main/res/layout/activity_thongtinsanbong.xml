@@ -2,204 +2,242 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/backgroundgreen2">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"></View>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Thông tin sân bóng"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textColor="#F44336"
-        android:fontFamily="serif"
-        android:textSize="25sp"/>
-        android:textSize="22sp"/>
-
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center|left">
         <ImageView
-            android:layout_marginRight="7dp"
-            android:id="@+id/img_thongtinsanbong_hinhanh1"
-            android:layout_width="150dp"
-            android:layout_height="150dp" />
-
-        <ImageView
-            android:id="@+id/img_thongtinsanbong_hinhanh2"
-            android:layout_width="150dp"
-            android:layout_height="150dp" />
+            android:id="@+id/_img_thongtinsanbong_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_margin="10dp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/vien"
-        android:padding="15dp">
-
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tên sân: "
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Thông tin sân bóng"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="25sp"/>
+            android:textSize="22sp"/>
 
-        <TextView
-            android:id="@+id/tv_thongtinsanbong_tensan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#B44343"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <ImageView
+                    android:layout_margin="7dp"
+                    android:id="@+id/img_thongtinsanbong_hinhanh1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="200dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textColor="#FFF"
-            android:fontFamily="serif"
-            android:text="Loại sân: "
-            android:textSize="18sp" />
+                <ImageView
+                    android:layout_margin="7dp"
+                    android:id="@+id/img_thongtinsanbong_hinhanh2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="200dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/vien"
+                android:padding="15dp">
 
-        <TextView
-            android:id="@+id/tv_thongtinsanbong_loaisan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#B44343"/>
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên sân: "
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textSize="17sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_tensan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Đánh giá: "
-            android:textColor="#FFFFFF"
-            android:fontFamily="serif"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+                </LinearLayout>
 
-        <RatingBar
-            android:id="@+id/rating_thongtinsanbong_danhgia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-    <View
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E2EC171E"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loại sân: "
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textSize="17sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:text="Tên chủ sân: "
-            android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_loaisan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_thongtinsanbong_tenchusan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#B44343"
-            android:textSize="18sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khoảng giá: "
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textSize="17sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textColor="#FFF"
-            android:fontFamily="serif"
-            android:text="Địa chỉ: "
-            android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_khoanggia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_thongtinsanbong_diachisan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#B44343"
-            android:textSize="18sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Đánh giá: "
+                        android:textColor="#000000"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textSize="17sp" />
+                    <RatingBar
+                        android:id="@+id/rating_thongtinsanbong_danhgia"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:clickable="false"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#b3b3b3"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Số điện thoại: "
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textColor="#FFF"
-            android:fontFamily="serif"
-            android:textSize="18sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_thongtinsanbong_sodienthoai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#B44343"
-            android:textSize="18sp" />
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:text="Tên chủ sân: "
+                        android:textSize="17sp" />
 
-    </LinearLayout>
-        <Button
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Liên hệ đặt sân"
-            android:textColor="#ffffff"
-            android:fontFamily="serif"
-            android:id="@+id/btn_thongtinsanbong_lienhengay"
-            android:background="@drawable/btn_dangnhap"
-            android:layout_marginTop="40dp"/>
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_tenchusan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:text="Địa chỉ sân: "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_diachisan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:text="Số điện thoại: "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_thongtinsanbong_sodienthoai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <Button
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Liên hệ đặt sân"
+                android:textColor="#ffffff"
+                android:fontFamily="serif"
+                android:id="@+id/btn_thongtinsanbong_lienhengay"
+                android:background="@drawable/btn_dangky"
+                android:layout_marginTop="40dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>

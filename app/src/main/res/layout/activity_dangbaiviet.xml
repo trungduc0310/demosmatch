@@ -3,9 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    >
+    <LinearLayout
+        android:id="@+id/ln_dangbaiviet_back"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center|left">
+        <ImageView
+            android:id="@+id/_img_dangbaiviet_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/img_dangbai_avt"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trung Đức"
+                android:textStyle="bold"
+                android:textColor="#020202"
+                android:id="@+id/tv_dangbai_name"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <ScrollView
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -13,33 +52,65 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/img_dangbaiviet_avt"/>
-
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:id="@+id/edt_dangbaiviet_noidung"
-                android:hint="Bạn muốn đăng gì?"/>
-
+                android:hint="Bạn muốn đăng gì?"
+                android:gravity="start"/>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiêu đề:"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/check_dangbaiviet_timtran"
+                        android:text="Tìm trận đấu"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ln_dangbai_chonkhuvuc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khu vực: "/>
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spin_dangbai_khuvuc">
+                    </Spinner>
+                </LinearLayout>
+            </LinearLayout>
 
             <ImageView
+                android:src="@drawable/ic_insert_photo_gray_24dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/edt_dangbaiviet_themanh"/>
+                android:id="@+id/img_dangbaiviet_themanh"/>
 
             <Button
+                android:id="@+id/btn_dangbaiviet_insert"
                 android:layout_margin="10dp"
                 android:background="@drawable/btn_binhluan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:text="Đăng"
-                android:textColor="#ffffff"
+                android:textColor="#acabab"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
         </LinearLayout>

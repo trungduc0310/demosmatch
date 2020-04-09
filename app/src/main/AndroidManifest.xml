@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.phamtrungduc.demogiaodien">
-
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,12 +21,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Dangnhap" />
-        <activity android:name=".activity.Dangky"
-            android:label=""/>
+        <activity
+            android:name=".activity.Dangky"
+            android:label="" />
         <activity android:name=".activity.Thembaiviet" />
         <activity android:name=".activity.PageUser" />
         <activity android:name=".activity.DoiPass" />
-        <activity android:name=".activity.ThongtinSanbong"/>
+        <activity android:name=".activity.ThongtinSanbong" />
+        <activity android:name=".activity.ChitietBaiviet" />
+        <activity android:name=".activity.Timkiem" />
+        <activity android:name=".activity.Thongtinnguoidung"></activity>
     </application>
 
 </manifest>

@@ -2,19 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/ln_bangtin_status"
         android:layout_margin="5dp"
-        android:background="@drawable/btn_binhluan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_gravity="center"
             android:src="@drawable/ic_account"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/img_bangtin_useravt"/>
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_account"-->
+            <!--/>-->
         <EditText
             android:layout_weight="1"
             android:layout_width="fill_parent"
@@ -24,18 +31,19 @@
             android:gravity="center"
             android:id="@+id/edt_bangtin_dangbai"/>
         <ImageButton
-            android:background="#00ffffff"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:background="@drawable/background_image_circle"
+            android:layout_gravity="center"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/ic_image_black_24dp"
             android:id="@+id/btnimg_bangtin_themhinhanh"
             />
     </LinearLayout>
-    <ListView
-        android:layout_margin="5dp"
-        android:background="@drawable/btn_binhluan"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_dsbangtin"
-        android:padding="10dp"></ListView>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lv_dsbangtin"
+                ></ListView>
+
 </LinearLayout>

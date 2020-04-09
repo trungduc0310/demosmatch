@@ -25,16 +25,16 @@ public class Thongbao extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_thongbao,container,false);
-        AnhXa(view);
+       // AnhXa(view);
         return view;
     }
 
-    private void AnhXa(View view) {
-        lv_dsthongbao=view.findViewById(R.id.lv_dsthongbao);
-        adapterThongbao= new AdapterThongbao(getContext(),R.layout.item_fragment_thongbao,Bangtin.dsbaiviet);
-        lv_dsthongbao.setAdapter(adapterThongbao);
-
-    }
+//    private void AnhXa(View view) {
+//        lv_dsthongbao=view.findViewById(R.id.lv_dsthongbao);
+//        adapterThongbao= new AdapterThongbao(getContext(),R.layout.item_fragment_thongbao,Bangtin.dsbaiviet);
+//        lv_dsthongbao.setAdapter(adapterThongbao);
+//
+//    }
 
 
 }
