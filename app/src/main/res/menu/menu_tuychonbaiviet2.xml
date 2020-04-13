@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Tới xem trang cá nhân"
-        android:id="@+id/menu_tuychon_trangcanhan"/>
-    <item
         android:title="Chỉnh sửa bài viết"
         android:id="@+id/menu_tuychon_chinhsua"
         />
     <item
         android:title="Xóa bài viết"
         android:id="@+id/menu_tuychon_xoabaiviet"/>
+    
 </menu>

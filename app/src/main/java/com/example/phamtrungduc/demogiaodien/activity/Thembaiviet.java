@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +61,7 @@ public class Thembaiviet extends AppCompatActivity {
     CheckBox cb_timtrandau;
     EditText edt_noidung;
     LinearLayout ln_timkhuvuc;
+    ProgressBar pro_thembaiviet;
     Button btn_insert;
     Spinner spinner_khuvuc;
     List<Khuvuc> danhsachkhuvuc;
@@ -170,6 +172,8 @@ public class Thembaiviet extends AppCompatActivity {
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pro_thembaiviet.setVisibility(View.VISIBLE);
+                v.setVisibility(View.INVISIBLE);
                 setTieude();
                 Themtin();
             }
@@ -203,6 +207,8 @@ public class Thembaiviet extends AppCompatActivity {
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
+                        pro_thembaiviet.setVisibility(View.GONE);
+                        btn_insert.setVisibility(View.VISIBLE);
                         String message = response.body();
                         if (message.length() > 0) {
                             anhbaiviet = APIUntils.base_url + "image/image_hinhanhbaiviet/" + message;
@@ -263,7 +269,9 @@ public class Thembaiviet extends AppCompatActivity {
         spinner_khuvuc = findViewById(R.id.spin_dangbai_khuvuc);
         tv_username = findViewById(R.id.tv_dangbai_name);
         img_avt = findViewById(R.id.img_dangbai_avt);
+        pro_thembaiviet=findViewById(R.id.progress_thembaiviet);
         edt_noidung = findViewById(R.id.edt_dangbaiviet_noidung);
+        pro_thembaiviet.setVisibility(View.INVISIBLE);
         btn_insert.setEnabled(false);
 
     }

@@ -14,14 +14,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -83,16 +79,17 @@ public class ChitietBaiviet extends AppCompatActivity {
             public void onResponse(Call<List<Binhluan>> call, Response<List<Binhluan>> response) {
                 progressBar_comment.setVisibility(View.GONE);
                 mlist = new ArrayList<>();
-                mlist = response.body();
-                Log.d("messcomment", mlist.get(0).getId_binhluan());
-//                    for (int i = 0; i < binhluan.size(); i++) {
-//                        mlist.add(new Binhluan(binhluan.get(i).getNoidung(), binhluan.get(i).getThoigian(), binhluan.get(i).getTennguoidung(),
-//                                binhluan.get(i).getAnhdaidien(), binhluan.get(i).getEmail(), binhluan.get(i).getId_binhluan()));
-//                    }
+                List<Binhluan>binhluan = response.body();
+                Log.d("messcomment", binhluan.get(0).getId_binhluan());
+                    for (int i = 0; i < binhluan.size(); i++) {
+                        mlist.add(new Binhluan(binhluan.get(i).getNoidung(), binhluan.get(i).getThoigian(), binhluan.get(i).getTennguoidung(),
+                                binhluan.get(i).getAnhdaidien(), binhluan.get(i).getEmail(), binhluan.get(i).getId_binhluan()));
+                    }
                 adapter = new AdapterBinhluan(ChitietBaiviet.this, R.layout.item_binhluan,mlist);
-                adapter.notifyDataSetChanged();
                 lv_dscmt.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
                 CustomListView(lv_dscmt);
+
             }
 
             @Override
@@ -180,9 +177,11 @@ public class ChitietBaiviet extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String noidung = edt_nhapcmt.getText().toString();
-                postComment(noidung, id_baiviet, email);
+                String user_email=Trangchu.mUser.getEmail();
+                postComment(noidung, id_baiviet, user_email);
             }
         });
+
     }
 
     private void postComment(String noidung, String id_baiviet, String email) {
@@ -210,7 +209,7 @@ public class ChitietBaiviet extends AppCompatActivity {
 
     private void showMenu() {
         PopupMenu popupMenu = new PopupMenu(this, img_more);
-        popupMenu.getMenuInflater().inflate(R.menu.menu_tuychonbaiviet, popupMenu.getMenu());
+        popupMenu.getMenuInflater().inflate(R.menu.menu_tuychonbaiviet2, popupMenu.getMenu());
         if (!Trangchu.mUser.getEmail().equals(email)) {
             popupMenu.getMenu().findItem(R.id.menu_tuychon_xoabaiviet).setEnabled(false);
             popupMenu.getMenu().findItem(R.id.menu_tuychon_chinhsua).setEnabled(false);
@@ -223,14 +222,32 @@ public class ChitietBaiviet extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Sửa", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.menu_tuychon_xoabaiviet:
-                        String src_hinhanh;
+                        final String src_hinhanh;
                         if(TextUtils.isEmpty(hinhanhbaiviet)){
                             src_hinhanh="";
                         }else{
                             src_hinhanh = hinhanhbaiviet.substring(hinhanhbaiviet.lastIndexOf("/"));
 
                         }
-                        Xoabaiviet(id_baiviet,src_hinhanh);
+                        AlertDialog.Builder diaBuilder = new AlertDialog.Builder(ChitietBaiviet.this);
+                        diaBuilder.setTitle("Xóa bài viết");
+                        diaBuilder.setMessage("Bài viết này sẽ vĩnh viễn xóa khỏi trang cá nhân của bạn");
+                        diaBuilder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        diaBuilder.setNegativeButton("Đồng ý xóa", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Xoabaiviet(id_baiviet,src_hinhanh);
+                            }
+                        });
+                        diaBuilder.setCancelable(true);
+                        AlertDialog showDialog = diaBuilder.create();
+                        showDialog.show();
+
                         break;
                     case R.id.menu_tuychon_trangcanhan:
                         break;
@@ -354,16 +371,14 @@ public class ChitietBaiviet extends AppCompatActivity {
         int totalHeight = lv_dscmt.getPaddingTop() + lv_dscmt.getPaddingBottom();
         for (int i = 0; i < listAdapter.getCount(); i++) {
             View listItem = listAdapter.getView(i, null, lv_dscmt);
-            if (listItem instanceof ViewGroup) {
-                listItem.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-            }
-            listItem.measure(0, 0);
+            float px = 300 * (lv_dscmt.getResources().getDisplayMetrics().density);
+            listItem.measure(View.MeasureSpec.makeMeasureSpec((int)px, View.MeasureSpec.AT_MOST), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
             totalHeight += listItem.getMeasuredHeight();
         }
         ViewGroup.LayoutParams params = lv_dscmt.getLayoutParams();
-        params.height = totalHeight + (lv_dscmt.getDividerHeight() * (listAdapter.getCount() - 1));
+        params.height = totalHeight + (lv_dscmt.getDividerHeight() * (listAdapter.getCount()-1));
         lv_dscmt.setLayoutParams(params);
+        lv_dscmt.requestLayout();
     }
 
 

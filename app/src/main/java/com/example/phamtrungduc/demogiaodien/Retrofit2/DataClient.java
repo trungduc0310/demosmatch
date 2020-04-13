@@ -54,6 +54,10 @@ public interface DataClient {
     @GET("quanlybaiviet/nguoidung/nguoidung_xembaiviet.php")
     Call<List<Baiviet>> nguoidung_getbaiviet(@Query("page") int page);
 
+    @GET("quanlybaiviet/nguoidung/nguoidung_xemtrangcanhan.php")
+    Call<List<Baiviet>> nguoidung_xemtrangcanhan(@Query("email_nguoidung") String email_nguoidung,
+                                                 @Query("page") int page);
+
     @FormUrlEncoded
     @POST("quanlybaiviet/nguoidung/get_binhluan.php")
     Call<List<Binhluan>> nguoidung_getbinhluan(@Field("id_baiviet") String id_baiviet);
@@ -67,9 +71,12 @@ public interface DataClient {
     @GET("quanlybaiviet/nguoidung/delete_binhluan.php")
     Call<String> nguoidung_xoabinhluan(@Query("id_binhluan") int id_binhluan);
 
+    @FormUrlEncoded
+    @POST("quanlybaiviet/nguoidung/nguoidung_timkiem.php")
+    Call<List<Baiviet>> nguoidung_timkiem(@Field("timkiem") String timkiem);
+
     @GET("quanlysanbong/xemdanhsachsanbong.php")
-    Call<List<Sanbong>> nguoidung_xemdanhsachsanbong(@Query("id_khuvuc") String id_khuvuc,
-                                                     @Query("page") int page);
+    Call<List<Sanbong>> nguoidung_xemdanhsachsanbong(@Query("id_khuvuc") String id_khuvuc);
 
     @GET("quanlysanbong/get_khuvuc.php")
     Call<List<Khuvuc>> sanbong_getkhuvuc();

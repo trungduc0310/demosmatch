@@ -3,7 +3,9 @@ package com.example.phamtrungduc.demogiaodien.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -18,18 +20,20 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ThongtinSanbong  extends AppCompatActivity {
+public class ThongtinSanbong extends AppCompatActivity {
     RatingBar ratingBar;
-    ImageView img_back,img_hinhanh1,img_hinhanh2;
-    TextView tv_tensan,tv_loaisan,tv_tenchusan,tv_diachi,tv_sdt,tv_khoanggia;
-    String id_sanbong,tensan,diachi,sodienthoai;
+    ImageView img_back, img_hinhanh1, img_hinhanh2;
+    TextView tv_tensan, tv_loaisan, tv_tenchusan, tv_diachi, tv_sdt, tv_khoanggia;
+    String id_sanbong, tensan, diachi, sodienthoai, src1, src2;
 
     List<Chitietsanbong> chitietsanbong;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_thongtinsanbong);
@@ -41,16 +45,19 @@ public class ThongtinSanbong  extends AppCompatActivity {
     }
 
     private void getData() {
-        DataClient dataClient=APIUntils.getData();
-        Call<List<Chitietsanbong>> callback=dataClient.sanbong_getchitietsanbong(id_sanbong);
+        DataClient dataClient = APIUntils.getData();
+        Call<List<Chitietsanbong>> callback = dataClient.sanbong_getchitietsanbong(id_sanbong);
         callback.enqueue(new Callback<List<Chitietsanbong>>() {
             @Override
             public void onResponse(Call<List<Chitietsanbong>> call, Response<List<Chitietsanbong>> response) {
-                chitietsanbong=response.body();
-                if (chitietsanbong.size()>0){
+                chitietsanbong = response.body();
+                if (chitietsanbong.size() > 0) {
+                    src1 = chitietsanbong.get(0).getHinhanh();
+                    src2 = chitietsanbong.get(1).getHinhanh();
                     LoadDataonView(chitietsanbong);
                 }
             }
+
             @Override
             public void onFailure(Call<List<Chitietsanbong>> call, Throwable t) {
                 Log.d("onFailure_sanbongs", t.getMessage());
@@ -78,10 +85,10 @@ public class ThongtinSanbong  extends AppCompatActivity {
 
 
     private void getDataIntent() {
-        id_sanbong=getIntent().getStringExtra("id_sanbong");
-        tensan=getIntent().getStringExtra("tensanbong");
-        diachi=getIntent().getStringExtra("diachi");
-        sodienthoai=getIntent().getStringExtra("sodienthoai");
+        id_sanbong = getIntent().getStringExtra("id_sanbong");
+        tensan = getIntent().getStringExtra("tensanbong");
+        diachi = getIntent().getStringExtra("diachi");
+        sodienthoai = getIntent().getStringExtra("sodienthoai");
     }
 
     private void EventClick() {
@@ -91,19 +98,46 @@ public class ThongtinSanbong  extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        img_hinhanh1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowdialogIMG(src1);
+            }
+        });
+        img_hinhanh2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowdialogIMG(src2);
+            }
+        });
+    }
+
+    private void ShowdialogIMG(String src) {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_xemhinhanh, null);
+        ImageView imgview_dialog=view.findViewById(R.id.img_dialogxemanh_img);
+        Picasso.with(ThongtinSanbong.this).load(src)
+                .placeholder(R.drawable.ic_image_black_24dp)
+                .error(R.drawable.ic_broken_image_black_24dp)
+                .into(imgview_dialog);
+        AlertDialog.Builder diaBuilder = new AlertDialog.Builder(ThongtinSanbong.this);
+        diaBuilder.setView(view);
+        diaBuilder.setCancelable(true);
+        AlertDialog showDialog = diaBuilder.create();
+        showDialog.show();
     }
 
     private void AnhXa() {
-        ratingBar=findViewById(R.id.rating_thongtinsanbong_danhgia);
-        img_back=findViewById(R.id._img_thongtinsanbong_back);
-        img_hinhanh1=findViewById(R.id.img_thongtinsanbong_hinhanh1);
-        img_hinhanh2=findViewById(R.id.img_thongtinsanbong_hinhanh2);
-        tv_tenchusan=findViewById(R.id.tv_thongtinsanbong_tenchusan);
-        tv_tensan=findViewById(R.id.tv_thongtinsanbong_tensan);
-        tv_loaisan=findViewById(R.id.tv_thongtinsanbong_loaisan);
-        tv_diachi=findViewById(R.id.tv_thongtinsanbong_diachisan);
-        tv_sdt=findViewById(R.id.tv_thongtinsanbong_sodienthoai);
-        tv_khoanggia=findViewById(R.id.tv_thongtinsanbong_khoanggia);
+        ratingBar = findViewById(R.id.rating_thongtinsanbong_danhgia);
+        img_back = findViewById(R.id._img_thongtinsanbong_back);
+        img_hinhanh1 = findViewById(R.id.img_thongtinsanbong_hinhanh1);
+        img_hinhanh2 = findViewById(R.id.img_thongtinsanbong_hinhanh2);
+        tv_tenchusan = findViewById(R.id.tv_thongtinsanbong_tenchusan);
+        tv_tensan = findViewById(R.id.tv_thongtinsanbong_tensan);
+        tv_loaisan = findViewById(R.id.tv_thongtinsanbong_loaisan);
+        tv_diachi = findViewById(R.id.tv_thongtinsanbong_diachisan);
+        tv_sdt = findViewById(R.id.tv_thongtinsanbong_sodienthoai);
+        tv_khoanggia = findViewById(R.id.tv_thongtinsanbong_khoanggia);
     }
 
 }

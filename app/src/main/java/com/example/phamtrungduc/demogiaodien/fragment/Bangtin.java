@@ -124,7 +124,7 @@ public class Bangtin extends Fragment {
                 }catch (NullPointerException nex){
                     limitdata=true;
                     lvbangtin.removeFooterView(footerView);
-                    Toast.makeText(getContext(), "Đã hết bài viết", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Đã hết bài viết", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -158,6 +158,7 @@ public class Bangtin extends Fragment {
         ibtndangbai = view.findViewById(R.id.btnimg_bangtin_themhinhanh);
         lvbangtin = view.findViewById(R.id.lv_dsbangtin);
         ln_status=view.findViewById(R.id.ln_bangtin_status);
+
         LayoutInflater inflater= (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         footerView=inflater.inflate(R.layout.processbar,null);
         edtdangbai.setFocusable(false);

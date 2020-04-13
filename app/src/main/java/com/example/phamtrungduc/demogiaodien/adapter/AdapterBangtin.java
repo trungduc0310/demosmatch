@@ -1,13 +1,11 @@
 package com.example.phamtrungduc.demogiaodien.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.PointerIcon;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -25,10 +23,9 @@ import com.example.phamtrungduc.demogiaodien.activity.Trangchu;
 import com.example.phamtrungduc.demogiaodien.entity.Baiviet;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterBangtin extends ArrayAdapter<Baiviet> {
@@ -104,7 +101,7 @@ public class AdapterBangtin extends ArrayAdapter<Baiviet> {
         viewHolder.imgbtn_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showMenu(finalViewHolder.imgbtn_more,position,mList);
+                showMenu(finalViewHolder.imgbtn_more,position);
             }
         });
         if (TextUtils.isEmpty(mList.get(position).getHinhanh())){
@@ -115,27 +112,41 @@ public class AdapterBangtin extends ArrayAdapter<Baiviet> {
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .into(viewHolder.img_hinhanhbaiviet);
         }
+        viewHolder.img_hinhanhbaiviet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowdialogIMG(mList.get(position).getHinhanh());
+            }
+        });
         return convertView;
     }
 
-    private void showMenu(ImageButton btn_more,int position, List<Baiviet> mlist) {
+    private void ShowdialogIMG(String hinhanh) {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.dialog_xemhinhanh, null);
+        ImageView imgview_dialog=view.findViewById(R.id.img_dialogxemanh_img);
+        Picasso.with(getContext()).load(hinhanh)
+                .placeholder(R.drawable.ic_image_black_24dp)
+                .error(R.drawable.ic_broken_image_black_24dp)
+                .into(imgview_dialog);
+        AlertDialog.Builder diaBuilder = new AlertDialog.Builder(getContext());
+        diaBuilder.setView(view);
+        diaBuilder.setCancelable(true);
+        AlertDialog showDialog = diaBuilder.create();
+        showDialog.show();
+    }
+
+    private void showMenu(ImageButton btn_more, final int position) {
         PopupMenu popupMenu = new PopupMenu(mContext, btn_more);
-        popupMenu.getMenuInflater().inflate(R.menu.menu_tuychonbaiviet, popupMenu.getMenu());
-        if (!Trangchu.mUser.getEmail().equals(mlist.get(position).getEmailnguoidung())){
-            popupMenu.getMenu().findItem(R.id.menu_tuychon_xoabaiviet).setEnabled(false);
-            popupMenu.getMenu().findItem(R.id.menu_tuychon_chinhsua).setEnabled(false);
-        }
+        popupMenu.getMenuInflater().inflate(R.menu.menu_tuychonbaiviet1, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_tuychon_chinhsua:
-                        Toast.makeText(mContext, "Sửa", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menu_tuychon_xoabaiviet:
-                        Toast.makeText(mContext, "Xóa", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.menu_tuychon_trangcanhan:
+                        Intent intent = new Intent(mContext, PageUser.class);
+                        intent.putExtra("thongtinbaiviet", mList.get(position));
+                        mContext.startActivity(intent);
                         break;
                 }
                 return false;
