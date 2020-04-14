@@ -163,7 +163,25 @@ public class Dangky extends AppCompatActivity {
                     }
                 });
             }catch (NullPointerException nullex){
+                id_nguoidung="user"+System.currentTimeMillis();
+                anhdaidien=APIUntils.base_url + "image/image_anhdaidien/baseuser.png";
+                DataClient dataClient1 = APIUntils.getData();
+                Call<String> callback = dataClient1.nguoidung_dangky(id_nguoidung,email, password, username,anhdaidien);
+                callback.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        String thongbao = response.body();
+                        if (thongbao.equals("success")){
+                            dangkyFirebase(email,password,username,anhdaidien);
+                        }
+//
+                    }
 
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Log.d("faildangky", t.getMessage());
+                    }
+                });
             }
 
 
@@ -195,7 +213,8 @@ public class Dangky extends AppCompatActivity {
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Log.d("faildangkyfire", e.toString());
+//                                            Log.d("faildangkyfire", e.toString());
+                                            Toast.makeText(Dangky.this, "Fail", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
