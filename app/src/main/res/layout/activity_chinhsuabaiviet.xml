@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.Chinhsuabaiviet">
+    <LinearLayout
+        android:id="@+id/ln_chinhsua_back"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center|left">
+        <ImageView
+            android:id="@+id/_img_chinhsua_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chỉnh sửa bài viết"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="#00cccb"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/img_chinhsua_avtbaiviet" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@id/img_chinhsua_avtbaiviet">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trung Đức"
+                            android:textStyle="bold"
+                            android:textColor="#020202"
+                            android:id="@+id/tv_chinhsua_username"
+                            android:textSize="16sp"/>
+                        <TextView
+                            android:textSize="10dp"
+                            android:textColor="#3A3434"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10-11-2019"
+                            android:id="@+id/tv_chinhsua_ngaythang"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/edt_chinhsua_noidung"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/img_chinhsua_hinhanhbaiviet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="250dp"
+                        android:layout_gravity="center"
+                        android:maxWidth="250dp"
+                        android:maxHeight="250dp"
+                        android:src="@drawable/ic_account" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+                    <Button
+                        android:id="@+id/btn_chinhsua_save"
+                        android:layout_margin="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_dangky"
+                        android:text="Lưu"
+                        android:textColor="#ffffff"/>
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/progress_chinhsua"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

@@ -219,7 +219,15 @@ public class ChitietBaiviet extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_tuychon_chinhsua:
-                        Toast.makeText(getApplicationContext(), "Sửa", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "Sửa", Toast.LENGTH_SHORT).show();
+                        String ngaythang=tv_thoigian.getText().toString();
+                        String noidung=tv_noidung.getText().toString();
+                        Intent intent= new Intent(ChitietBaiviet.this,Chinhsuabaiviet.class);
+                        intent.putExtra("id_baiviet",id_baiviet);
+                        intent.putExtra("ngaythang",ngaythang);
+                        intent.putExtra("noidung",noidung);
+                        intent.putExtra("hinhanh",hinhanhbaiviet);
+                        startActivity(intent);
                         break;
                     case R.id.menu_tuychon_xoabaiviet:
                         final String src_hinhanh;

@@ -102,5 +102,16 @@ public interface DataClient {
     Call<String> nguoidung_doimatkhau(@Field("email") String email,
                                       @Field("matkhaucu") String matkhaucu,
                                       @Field("matkhaumoi") String matkhaumoi);
-
+    @FormUrlEncoded
+    @POST("quanlytaikhoan/capnhathoso.php")
+    Call<String> nguoidung_capnhathoso(@Field("email_nguoidung") String email,
+                                       @Field("tennguoidung") String username,
+                                       @Field("gioitinh") String gioitinh,
+                                       @Field("diachi") String diachi,
+                                       @Field("ngaysinh") String ngaysinh,
+                                       @Field("avt_old") String avt_old,
+                                       @Field("avt_new") String avt_new);
+    @FormUrlEncoded
+    @POST("get_nguoidung.php")
+    Call<List<Nguoidung>> get_nguoidung(@Field("email") String email);
 }

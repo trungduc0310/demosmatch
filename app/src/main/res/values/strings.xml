@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">DemoGiaodien</string>
-    <string name="title_activity_trangchu">Trangchu</string>
+    <string name="app_name">Smatch</string>
+    <string name="title_activity_trangchu">Smatch</string>
     <string name="tab_text_1">Bảng tin</string>
     <string name="tab_text_2">Danh sách sân bóng</string>
     <string name="tab_text_3">Thông báo</string>
