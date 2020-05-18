@@ -28,6 +28,9 @@
             android:text="Chọn khu vực: "
             android:layout_weight="2"/>
         <Spinner
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_weight="1"
             android:id="@+id/spin_dskhuvuc"
             android:layout_width="match_parent"

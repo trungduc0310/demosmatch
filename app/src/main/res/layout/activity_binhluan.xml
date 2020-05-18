@@ -2,8 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/ln_binhluan_back"
         android:layout_width="match_parent"
@@ -11,6 +10,9 @@
         android:orientation="horizontal"
         android:gravity="center|left">
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:id="@+id/_img_binhluan_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -80,7 +82,9 @@
                     android:layout_marginTop="5dp"
                     android:orientation="vertical">
                     <TextView
-                        android:layout_marginBottom="5dp"
+                        android:autoLink="all"
+                        android:linksClickable="true"
+                        android:layout_margin="5dp"
                         android:id="@+id/tv_binhluan_noidungbv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -109,7 +113,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:background="#ffffff"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -121,6 +124,8 @@
                         android:src="@drawable/ic_account" />
 
                     <EditText
+                        android:background="@drawable/background_edt_find"
+                        android:padding="10dp"
                         android:id="@+id/edt_binhluan_noidung"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -131,6 +136,9 @@
                         android:hint="Nhập bình luận" />
 
                     <ImageButton
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:id="@+id/img_binhluan_send"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -153,6 +161,7 @@
                     android:textColor="#acabab"
                     android:textSize="14sp"></TextView>
                 <LinearLayout
+                    android:background="#ffffff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">

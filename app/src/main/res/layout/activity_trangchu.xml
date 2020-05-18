@@ -21,6 +21,14 @@
                 app:tabSelectedTextColor="#00cccb"
                 app:tabTextColor="#737373">
             </com.google.android.material.tabs.TabLayout>
+    <TextView
+        android:id="@+id/tv_thongbao_internet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không có kết nối Internet!"
+        android:background="#c6ff3333"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/container"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.Chinhsuabaiviet">
+    tools:context=".activity.ChangePostActivity">
     <LinearLayout
         android:id="@+id/ln_chinhsua_back"
         android:layout_width="match_parent"
@@ -13,6 +13,9 @@
         android:orientation="horizontal"
         android:gravity="center|left">
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:id="@+id/_img_chinhsua_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -81,6 +84,11 @@
                     android:padding="5dp">
 
                     <EditText
+                        android:background="@drawable/background_textview"
+                        android:padding="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:id="@+id/edt_chinhsua_noidung"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -99,6 +107,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center">
                     <Button
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:id="@+id/btn_chinhsua_save"
                         android:layout_margin="10dp"
                         android:layout_width="wrap_content"

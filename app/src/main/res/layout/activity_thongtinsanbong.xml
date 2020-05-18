@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ece6e6">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,6 +11,9 @@
         android:orientation="horizontal"
         android:gravity="center|left">
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:id="@+id/_img_thongtinsanbong_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -74,7 +78,6 @@
                         android:text="Tên sân: "
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:textSize="17sp" />
 
                     <TextView
@@ -98,7 +101,6 @@
                         android:text="Loại sân: "
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:textSize="17sp" />
 
                     <TextView
@@ -119,7 +121,6 @@
                         android:text="Khoảng giá: "
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:textSize="17sp" />
 
                     <TextView
@@ -141,7 +142,6 @@
                         android:layout_marginTop="10dp"
                         android:text="Đánh giá: "
                         android:textColor="#000000"
-                        android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textSize="17sp" />
                     <RatingBar
@@ -170,7 +170,6 @@
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:text="Tên chủ sân: "
                         android:textSize="17sp" />
 
@@ -191,7 +190,6 @@
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:text="Địa chỉ sân: "
                         android:textSize="17sp" />
 
@@ -212,7 +210,6 @@
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
                         android:text="Số điện thoại: "
                         android:textSize="17sp" />
 
@@ -225,17 +222,30 @@
                 </LinearLayout>
 
             </LinearLayout>
-            <Button
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
+            <RelativeLayout
+                android:layout_margin="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Liên hệ đặt sân"
-                android:textColor="#ffffff"
-                android:fontFamily="serif"
-                android:id="@+id/btn_thongtinsanbong_lienhengay"
-                android:background="@drawable/btn_dangky"
-                android:layout_marginTop="40dp"/>
+                android:layout_gravity="center">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/progress_datsan"/>
+                <Button
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textStyle="bold"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="Liên hệ đặt sân"
+                    android:textColor="#ffffff"
+                    android:id="@+id/btn_thongtinsanbong_lienhengay"
+                    android:background="@drawable/btn_dangky"
+                    />
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 

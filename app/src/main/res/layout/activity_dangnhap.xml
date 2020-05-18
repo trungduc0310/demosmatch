@@ -5,9 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.Dangnhap"
+    tools:context=".activity.LoginActivity"
     android:gravity="center"
     android:background="@drawable/background">
+    <TextView
+        android:id="@+id/tv_thongbao_internet_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không có kết nối Internet!"
+        android:background="#c6ff3333"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,50 +44,64 @@
 
             </TextView>
             <TextView
+                android:layout_marginBottom="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
-                android:fontFamily="serif"
                 android:layout_gravity="center"
                 android:text="Đăng nhập"
                 android:textColor="#FF9800"/>
 
             <TextView
-                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 android:textStyle="bold"
                 android:textColor="#EBFDFDFD"
-                android:fontFamily="serif">
+                >
 
             </TextView>
 
 
             <EditText
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:singleLine="true"
+                android:padding="10dp"
+                android:background="@drawable/background_textview"
                 android:drawableLeft="@drawable/ic_account_white"
+                android:drawablePadding="10sp"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:layout_height="match_parent"
                 android:id="@+id/edt_dangnhap_email"
                 />
             <TextView
-                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mật khẩu:"
                 android:textStyle="bold"
-                android:textColor="#EBFDFDFD"
-                android:fontFamily="serif">
+                android:textColor="#EBFDFDFD">
 
             </TextView>
 
             <EditText
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:singleLine="true"
+                android:drawablePadding="10sp"
+                android:padding="10dp"
+                android:background="@drawable/background_textview"
                 android:drawableLeft="@drawable/ic_lock_white24dp"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:layout_height="match_parent"
                 android:id="@+id/edt_dangnhap_matkhau"
                 android:inputType="textPassword"/>
             <RelativeLayout
@@ -88,12 +110,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <Button
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     android:id="@+id/btn_dangnhap"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:text="Đăng nhập"
                     android:textStyle="bold"
-                    android:fontFamily="serif"
                     android:background="@drawable/btn_dangnhap"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -112,10 +136,12 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
                 android:text="Bạn chưa có tài khoản?"
-                android:fontFamily="serif"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,11 +163,13 @@
                     android:layout_centerInParent="true">
 
                     <TextView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Quên mật khẩu"
                         android:textColor="#CA0909"
-                        android:fontFamily="serifn"
                         android:textStyle="italic"
                         android:layout_marginTop="15dp"
                         android:id="@+id/tv_dangnhap_forgotpass"/>

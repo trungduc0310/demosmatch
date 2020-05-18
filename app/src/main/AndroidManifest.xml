@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.phamtrungduc.demogiaodien">
-
+    package="com.example.phamtrungduc.smatch">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -12,8 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="TAG" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
         <activity
-            android:name=".activity.Trangchu"
+            android:name="com.example.phamtrungduc.smatch.activity.HomeActivity"
             android:label="@string/title_activity_trangchu"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -22,16 +30,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Dangnhap" />
-        <activity android:name=".activity.Dangky" />
-        <activity android:name=".activity.Thembaiviet" />
-        <activity android:name=".activity.PageUser" />
-        <activity android:name=".activity.DoiPass" />
-        <activity android:name=".activity.ThongtinSanbong" />
-        <activity android:name=".activity.ChitietBaiviet" />
-        <activity android:name=".activity.Timkiem" />
-        <activity android:name=".activity.Thongtinnguoidung" />
-        <activity android:name=".activity.Chinhsuabaiviet"></activity>
+        <activity android:name="com.example.phamtrungduc.smatch.activity.LoginActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.RegisterActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.AddPostActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.PageUserActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.ChangepasswordActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.MatchDetailsActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.PostDetails"
+            android:parentActivityName=".activity.HomeActivity"
+            />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.SearchActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.UserDetailsActivity" />
+        <activity android:name="com.example.phamtrungduc.smatch.activity.ChangePostActivity"></activity>
+        <!--<service-->
+            <!--android:name=".ServiceNotification.MyFirebaseInstanceIDService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+        <service
+            android:name=".ServiceNotification.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

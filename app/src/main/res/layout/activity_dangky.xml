@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ece6e6">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -48,11 +49,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/comicsan"
                     android:layout_gravity="center"
-                    android:text="Đăng ký tài khoản"
+                    android:text="Đăng ký"
                     android:textColor="#00cccb"/></LinearLayout>
             <LinearLayout
                 android:layout_margin="10dp"
@@ -66,6 +67,9 @@
                     android:src="@drawable/ic_image_black_24dp"
                     android:id="@+id/img_dangky_avt"/>
                 <TextView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     android:layout_marginTop="3dp"
                     android:padding="3dp"
                     android:background="#dfdfdf"
@@ -78,8 +82,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="*Vui lòng điền đầy đủ thông tin:">
+                android:fontFamily="@font/comicsan"
+                android:text="* Vui lòng điền đầy đủ thông tin:">
             </TextView>
 
             <LinearLayout
@@ -93,11 +97,17 @@
                     android:text="Tên người dùng (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/comicsan"
                     android:textColor="#000000">
 
                 </TextView>
                 <EditText
+                    android:padding="10dp"
+                    android:background="@drawable/background_textview"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:singleLine="true"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/edt_dangky_tennguoidung"
@@ -110,10 +120,16 @@
                     android:text="Email (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/comicsan"
                     android:textColor="#000000">
                 </TextView>
                 <EditText
+                    android:padding="10dp"
+                    android:background="@drawable/background_textview"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:singleLine="true"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/edt_dangky_email"/>
@@ -124,10 +140,16 @@
                     android:text="Mật khẩu (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/comicsan"
                     android:textColor="#000000">
                 </TextView>
                 <EditText
+                    android:padding="10dp"
+                    android:background="@drawable/background_textview"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:singleLine="true"
                     android:inputType="textPassword"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -139,33 +161,56 @@
                     android:text="Nhập lại mật khẩu (*):"
                     android:textStyle="bold"
                     android:textSize="13sp"
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/comicsan"
                     android:textColor="#000000">
                 </TextView>
                 <EditText
+                    android:padding="10dp"
+                    android:background="@drawable/background_textview"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:singleLine="true"
                     android:inputType="textPassword"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/edt_dangky_nhaplaimatkhau"/>
                 <CheckBox
+                    android:id="@+id/cb_dangky_showpass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hiện mật khẩu"
+                    android:textSize="17sp"
                     android:textColor="#00cccb"
-                    android:fontFamily="serif">
+                    android:fontFamily="@font/comicsan">
                 </CheckBox>
             </LinearLayout>
-            <Button
-                android:id="@+id/btn_dangky_dangky"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
+            <RelativeLayout
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_dangky"
-                android:fontFamily="serif"
-                android:text="Đăng ký"
-                android:textColor="#ffffff"
-                android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/progress_dangky"/>
+                <Button
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/btn_dangky_dangky"
+                    android:layout_width="wrap_content"
+                    android:padding="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/btn_dangky"
+                    android:fontFamily="@font/comicsan"
+                    android:text="Đăng ký"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
 
         </LinearLayout>
 

@@ -13,6 +13,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/ln_fragmenttuychon_viewprifile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,17 +59,25 @@
 
             </View>
             <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_marginTop="10dp"
                 android:id="@+id/tv_tuychon_changepass"
                 android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="7dp"
                 android:text="Đổi mật khẩu"
                 android:textSize="18sp"
                 android:gravity="center_vertical"
                 android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp" />
             <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:drawablePadding="7dp"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_marginTop="5dp"
                 android:id="@+id/tv_tuychon_logout"
                 android:padding="5dp"

@@ -23,6 +23,9 @@
             <!--android:src="@drawable/ic_account"-->
             <!--/>-->
         <EditText
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -31,6 +34,9 @@
             android:gravity="center"
             android:id="@+id/edt_bangtin_dangbai"/>
         <ImageButton
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:background="@drawable/background_image_circle"
             android:layout_gravity="center"
             android:layout_width="35dp"
@@ -39,11 +45,22 @@
             android:id="@+id/btnimg_bangtin_themhinhanh"
             />
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bangtin"
+            android:layout_centerInParent="true"/>
+        <ListView
+            android:dividerHeight="10dp"
+            android:divider="#b3b3b3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_dsbangtin"
+            ></ListView>
+    </RelativeLayout>
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lv_dsbangtin"
-                ></ListView>
 
 </LinearLayout>

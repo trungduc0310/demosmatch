@@ -12,6 +12,9 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:id="@+id/_img_dangbaiviet_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -60,6 +63,8 @@
             android:orientation="vertical">
 
             <EditText
+                android:background="@drawable/background_textview"
+                android:padding="10dp"
                 android:id="@+id/edt_dangbaiviet_noidung"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -125,6 +130,9 @@
                     android:id="@+id/progress_thembaiviet"
                     android:layout_centerInParent="true"/>
                 <Button
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     android:id="@+id/btn_dangbaiviet_insert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

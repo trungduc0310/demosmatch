@@ -12,12 +12,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nhập địa chỉ email để lấy lại mật khẩu"
-            android:fontFamily="serif"
             android:layout_gravity="center"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textColor="#ffffff"/>
         <EditText
-            android:background="@drawable/btn_binhluan"
+            android:background="@drawable/background_textview"
             android:layout_margin="5dp"
             android:padding="10dp"
             android:id="@+id/edt_quenpass"
@@ -26,6 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_margin="10dp"
             android:id="@+id/btn_forgotpass"
             android:text="Xác nhận"

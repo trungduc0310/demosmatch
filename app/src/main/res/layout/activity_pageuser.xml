@@ -12,6 +12,9 @@
         android:orientation="horizontal"
         android:gravity="center|left">
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:id="@+id/_img_pageuser_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -62,6 +65,9 @@
                         android:id="@+id/tv_pageuser_username"
                         />
                     <ImageButton
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,6 +108,8 @@
                     android:layout_centerInParent="true"
                     android:id="@+id/progress_pageuser"/>
                 <ListView
+                    android:dividerHeight="10dp"
+                    android:divider="#b3b3b3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/lv_pageuser_dsbaiviet">
