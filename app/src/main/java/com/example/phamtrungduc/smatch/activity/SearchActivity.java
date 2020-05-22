@@ -27,14 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    ImageView img_back;
-    EditText edt_timkiem;
-    ImageButton img_search;
-    ProgressBar pro_timkiem;
-    ListView lv_kqtimkiem;
-    TextView tv_thongbao;
-    NewFeedAdapter adapter;
-    List<Post> mlist;
+    private ImageView img_back;
+    private EditText edt_timkiem;
+    private ImageButton img_search;
+    private ProgressBar pro_timkiem;
+    private ListView lv_kqtimkiem;
+    private TextView tv_thongbao;
+    private NewFeedAdapter adapter;
+    private List<Post> mlist;
 
 
     @Override
@@ -89,35 +89,51 @@ public class SearchActivity extends AppCompatActivity {
 
     private void getDL(final String timkiem) {
         DataClient dataClient= APIUntils.getData();
-        Call<List<Post>> callback=dataClient.nguoidung_timkiem(timkiem);
-        callback.enqueue(new Callback<List<Post>>() {
+        final Call<List<Post>> callback=dataClient.nguoidung_timkiem(timkiem);
+        new Thread(new Runnable() {
             @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                try{
-                    tv_thongbao.setVisibility(View.GONE);
-                    pro_timkiem.setVisibility(View.GONE);
-                    Log.d("timkiem", response.body().get(0).getIdbaiviet());
-                    mlist=response.body();
-                    adapter= new NewFeedAdapter(SearchActivity.this,R.layout.item_baiviet_pagefriend,mlist);
-                    lv_kqtimkiem.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                }catch (NullPointerException nullex){
-                    pro_timkiem.setVisibility(View.GONE);
-                    tv_thongbao.setVisibility(View.VISIBLE);
-                    tv_thongbao.setText("Không có kết quả nào phù hợp với: '"+timkiem+"'");
-                    mlist=new ArrayList<>();
-                    adapter= new NewFeedAdapter(SearchActivity.this,R.layout.item_baiviet_pagefriend,mlist);
-                    lv_kqtimkiem.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                }
+            public void run() {
+                callback.enqueue(new Callback<List<Post>>() {
+                    @Override
+                    public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                        try{
+                            tv_thongbao.setVisibility(View.GONE);
+                            pro_timkiem.setVisibility(View.GONE);
+                            Log.d("timkiem", response.body().get(0).getIdbaiviet());
+                            mlist=response.body();
+                            lv_kqtimkiem.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter= new NewFeedAdapter(SearchActivity.this,R.layout.item_baiviet_pagefriend,mlist);
+                                    lv_kqtimkiem.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            });
 
-            }
+                        }catch (NullPointerException nullex){
+                            pro_timkiem.setVisibility(View.GONE);
+                            tv_thongbao.setVisibility(View.VISIBLE);
+                            tv_thongbao.setText("Không có kết quả nào phù hợp với: '"+timkiem+"'");
+                            mlist=new ArrayList<>();
+                            lv_kqtimkiem.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter= new NewFeedAdapter(SearchActivity.this,R.layout.item_baiviet_pagefriend,mlist);
+                                    lv_kqtimkiem.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            });
+                        }
 
-            @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-                Log.d("timkiemfail", t.getMessage());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Post>> call, Throwable t) {
+                        Log.d("timkiemfail", t.getMessage());
+                    }
+                });
             }
-        });
+        }).start();
     }
 
 

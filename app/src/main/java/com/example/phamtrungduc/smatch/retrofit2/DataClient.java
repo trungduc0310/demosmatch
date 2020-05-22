@@ -74,6 +74,10 @@ public interface DataClient {
     @POST("quanlybaiviet/nguoidung/nguoidung_timkiem.php")
     Call<List<Post>> nguoidung_timkiem(@Field("timkiem") String timkiem);
 
+    @FormUrlEncoded
+    @POST("quanlybaiviet/nguoidung/kiemtraid.php")
+    Call<String> kiemtraid(@Field("id_baiviet") String id);
+
     @GET("quanlysanbong/xemdanhsachsanbong.php")
     Call<List<Match>> nguoidung_xemdanhsachsanbong(@Query("id_khuvuc") String id_khuvuc);
 
@@ -120,7 +124,8 @@ public interface DataClient {
 
     @FormUrlEncoded
     @POST("send.php")
-    Call<Message> push_notification(@Field("title") String title,
+    Call<Message> push_notification(@Field("topics") String topics,
+                                    @Field("title") String title,
                                     @Field("body") String body,
                                     @Field("id_baiviet") String id_baiviet,
                                     @Field("email") String email,

@@ -79,5 +79,10 @@ public class Comment {
     public void setAnhdaidien(String anhdaidien) {
         this.anhdaidien = anhdaidien;
     }
+//    private String xulyngay(String ngay) {
+//        String[] xuly = ngay.split("\\-");
+//        ngay = xuly[2] + "/" + xuly[1] + "/" + xuly[0];
+//        return ngay;
+//    }
 
 }

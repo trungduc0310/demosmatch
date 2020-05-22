@@ -54,16 +54,16 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText edt_username, edt_email, edt_pass, edt_repass;
-    Button btn_register;
-    ImageView img_back, img_anhdaidien;
-    TextView tv_chonanhdaidien;
-    CheckBox cb_showpass;
-    FirebaseAuth mAuth;
-    private int REQUEST_CODE_IMAGE = 1;
-    String real_path;
-    String anhdaidien=null;
-    String id_nguoidung=null;
+    private EditText edt_username, edt_email, edt_pass, edt_repass;
+    private Button btn_register;
+    private ImageView img_back, img_anhdaidien;
+    private TextView tv_chonanhdaidien;
+    private CheckBox cb_showpass;
+    private FirebaseAuth mAuth;
+    private final int REQUEST_CODE_IMAGE = 1;
+    private String real_path;
+    private String anhdaidien=null;
+    private String id_nguoidung=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

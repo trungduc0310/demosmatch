@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.adapter.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,13 +33,12 @@ import androidx.viewpager.widget.ViewPager;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ViewPager mviewPager;
+    private ViewPager mviewPager;
     public static TextView tv_thongbao;
-    TabLayout mTablayout;
-    Toolbar toolbar;
+    private TabLayout mTablayout;
+    private Toolbar toolbar;
     //CounterFab counterFab;
-    public static FirebaseAuth mAuth;
-    public static FirebaseUser mUser;
+
 
     ImageButton img_find;
     private int[] tabIcon={R.drawable.ic_home_black_24dp,R.drawable.ic_phone_black_24dp,R.drawable.ic_notifications_black_24dp,R.drawable.ic_menu_black_24dp
@@ -92,10 +93,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void Kiemtradangnhap() {
-        mAuth=FirebaseAuth.getInstance();
-        mUser=mAuth.getCurrentUser();
 
-        if (mAuth.getCurrentUser()==null){
+        if (MyFirebaseMessagingService.mAuth.getCurrentUser()==null){
             startActivity(new Intent(HomeActivity.this,LoginActivity.class));
         }
 
@@ -106,11 +105,11 @@ public class HomeActivity extends AppCompatActivity {
         mTablayout=findViewById(R.id.tabs);
         img_find=findViewById(R.id.btnimg_timkiem);
         toolbar=findViewById(R.id.trangchu_toolbar);
-        mAuth=FirebaseAuth.getInstance();
-        mUser=mAuth.getCurrentUser();
+        MyFirebaseMessagingService.mAuth=FirebaseAuth.getInstance();
+        MyFirebaseMessagingService.mUser=MyFirebaseMessagingService.mAuth.getCurrentUser();
+
         // counterFab=findViewById(R.id.counterFab);
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-
 
         // counterFab.setCount(5);
         FragmentManager fragmentManager= getSupportFragmentManager();

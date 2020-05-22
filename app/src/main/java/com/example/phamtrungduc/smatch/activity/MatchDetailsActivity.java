@@ -27,14 +27,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MatchDetailsActivity extends AppCompatActivity {
-    ProgressBar pro_datsan;
-    RatingBar ratingBar;
-    ImageView img_back, img_hinhanh1, img_hinhanh2;
-    TextView tv_tensan, tv_loaisan, tv_tenchusan, tv_diachi, tv_sdt, tv_khoanggia;
-    String id_sanbong, tensan, diachi, sodienthoai, src1, src2;
-    Button btn_call;
+    private ProgressBar pro_datsan;
+    private RatingBar ratingBar;
+    private ImageView img_back, img_hinhanh1, img_hinhanh2;
+    private TextView tv_tensan, tv_loaisan, tv_tenchusan, tv_diachi, tv_sdt, tv_khoanggia;
+    private String id_sanbong, tensan, diachi, sodienthoai, src1, src2;
+    private Button btn_call;
 
-    List<MatchDetails> matchDetails;
+    private List<MatchDetails> matchDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

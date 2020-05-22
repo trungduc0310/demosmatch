@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.activity.AddPostActivity;
@@ -39,19 +40,19 @@ import retrofit2.Response;
 
 
 public class NewFeedFragment extends Fragment {
-    ProgressBar pro_bangtin;
-    ImageView imgavtuser;
-    EditText edtdangbai;
-    ImageButton ibtndangbai;
-    ListView lvbangtin;
-    LinearLayout ln_status;
-    public List<Post> dsbaiviet;
-    NewFeedAdapter adapter;
-    View footerView;
-    mHander hander;
-    boolean limitdata=false;
-    boolean loading=false;
-    int page=1;
+    private ProgressBar pro_bangtin;
+    private ImageView imgavtuser;
+    private EditText edtdangbai;
+    private ImageButton ibtndangbai;
+    private ListView lvbangtin;
+    private LinearLayout ln_status;
+    private List<Post> dsbaiviet;
+    private NewFeedAdapter adapter;
+    private View footerView;
+    private mHander hander;
+    private boolean limitdata=false;
+    private boolean loading=false;
+    private int page=1;
 
     public NewFeedFragment() {
     }
@@ -100,7 +101,7 @@ public class NewFeedFragment extends Fragment {
 
     private void LoadDataUser() {
         try {
-            Picasso.with(getContext()).load(String.valueOf(HomeActivity.mUser.getPhotoUrl()))
+            Picasso.with(getContext()).load(String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()))
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(imgavtuser);

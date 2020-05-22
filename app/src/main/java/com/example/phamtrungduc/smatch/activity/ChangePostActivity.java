@@ -20,18 +20,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.squareup.picasso.Picasso;
 
 public class ChangePostActivity extends AppCompatActivity {
-    CircleImageView img_avt;
-    TextView tv_username,tv_datetime;
-    ImageView img_back,img_hinhanhbaiviet;
-    Button btn_save;
-    EditText edt_noidung;
-    ProgressBar pro_chinhsua;
-    String id_baiviet;
+    private CircleImageView img_avt;
+    private TextView tv_username,tv_datetime;
+    private ImageView img_back,img_hinhanhbaiviet;
+    private Button btn_save;
+    private EditText edt_noidung;
+    private ProgressBar pro_chinhsua;
+    private String id_baiviet="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,8 +114,8 @@ public class ChangePostActivity extends AppCompatActivity {
         String noidung=getIntent().getStringExtra("noidung");
         String hinhanhbaiviet=getIntent().getStringExtra("hinhanh");
         String thoigian=getIntent().getStringExtra("ngaythang");
-        String username=HomeActivity.mUser.getDisplayName();
-        String avt= String.valueOf(HomeActivity.mUser.getPhotoUrl());
+        String username=MyFirebaseMessagingService.mUser.getDisplayName();
+        String avt= String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl());
         edt_noidung.setText(noidung);
         if (TextUtils.isEmpty(hinhanhbaiviet)){
             img_hinhanhbaiviet.setVisibility(View.GONE);

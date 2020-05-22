@@ -18,9 +18,9 @@ import androidx.annotation.Nullable;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CommentAdapter extends ArrayAdapter<Comment> {
-    Context mcontext;
-    int mlayout;
-    List<Comment> mlist;
+    private Context mcontext;
+    private int mlayout;
+    private List<Comment> mlist;
     public CommentAdapter(@NonNull Context context, int resource, @NonNull List<Comment> objects) {
         super(context, resource, objects);
         mcontext=context;
@@ -48,17 +48,12 @@ public class CommentAdapter extends ArrayAdapter<Comment> {
             viewHolder= (ViewHolder) convertView.getTag();
         }
         viewHolder.tv_noidung.setText(mlist.get(position).getNoidung());
-        viewHolder.tv_ngaythang.setText(xulyngay(mlist.get(position).getThoigian()));
+        viewHolder.tv_ngaythang.setText(mlist.get(position).getThoigian());
         viewHolder.tv_username.setText(mlist.get(position).getTennguoidung());
         Picasso.with(mcontext).load(mlist.get(position).getAnhdaidien())
                 .placeholder(R.drawable.ic_image_black_24dp)
                 .error(android.R.drawable.ic_menu_report_image)
                 .into(viewHolder.img_avt);
         return convertView;
-    }
-    public String xulyngay(String ngay) {
-        String[] xuly = ngay.split("\\-");
-        ngay = xuly[2] + "/" + xuly[1] + "/" + xuly[0];
-        return ngay;
     }
 }

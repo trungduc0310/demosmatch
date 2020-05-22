@@ -16,9 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class AreaAdapter extends ArrayAdapter<Area> {
-    Context mcontext;
-    int mlayout;
-    List<Area> mlist;
+    private Context mcontext;
+    private int mlayout;
+    private List<Area> mlist;
     public AreaAdapter(@NonNull Context context, int resource, @NonNull List<Area> objects) {
         super(context, resource, objects);
         mcontext=context;

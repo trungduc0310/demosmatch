@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Post implements Serializable {
+    public Post() {
+    }
     public Post(String noidung, String tieude) {
         this.noidung = noidung;
         this.tieude = tieude;
@@ -111,4 +113,11 @@ public class Post implements Serializable {
         this.hinhanh = hinhanh;
         this.anhdaidien = anhdaidien;
     }
+
+
+    //    private String xulyngay(String ngay) {
+//        String[] xuly = ngay.split("\\-");
+//        ngay = xuly[2] + "/" + xuly[1] + "/" + xuly[0];
+//        return ngay;
+//    }
 }

@@ -29,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
+import com.example.phamtrungduc.smatch.entity.Message;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.adapter.CommentAdapter;
@@ -36,49 +38,46 @@ import com.example.phamtrungduc.smatch.entity.Post;
 import com.example.phamtrungduc.smatch.entity.Comment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PostDetails extends AppCompatActivity {
-    ListView lv_dscmt;
-    List<Comment> mlist;
-    CommentAdapter adapter;
-    ProgressBar progressBar_comment;
-    ImageView img_back, img_avt_user, img_hinhanh, img_avt;
-    ImageButton img_send, img_more;
-    TextView tv_username, tv_thoigian, tv_noidung;
-    EditText edt_nhapcmt;
-    String id_baiviet,noidung;
-    String hinhanhbaiviet;
-    String email;
+    private ListView lv_dscmt;
+    private List<Comment> mlist;
+    private CommentAdapter adapter;
+    private ProgressBar progressBar_comment;
+    private ImageView img_back, img_avt_user, img_hinhanh, img_avt;
+    private ImageButton img_send, img_more;
+    private TextView tv_username, tv_thoigian, tv_noidung;
+    private EditText edt_nhapcmt;
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+    private String id_baiviet,noidung,tennguoidung,thoigian,tieude,anhdaidien;
+    private String hinhanhbaiviet;
+    private String email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth=FirebaseAuth.getInstance();
-        mUser=mAuth.getCurrentUser();
         setContentView(R.layout.activity_binhluan);
         AnhXa();
-
+        getContentPost();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         getProfile();
-        getContentPost();
         getDataComment();
         EventClick();
     }
 
     private void getProfile() {
         try{
-            Picasso.with(this).load(String.valueOf(mUser.getPhotoUrl()))
+            Picasso.with(this).load(String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()))
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(img_avt);
@@ -107,9 +106,7 @@ public class PostDetails extends AppCompatActivity {
                 lv_dscmt.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 CustomListView(lv_dscmt);
-
             }
-
             @Override
             public void onFailure(Call<List<Comment>> call, Throwable t) {
                 try{
@@ -124,8 +121,6 @@ public class PostDetails extends AppCompatActivity {
                 }catch (NullPointerException nes){
 
                 }
-//                adapter.notifyDataSetChanged();
-
             }
         });
     }
@@ -136,23 +131,27 @@ public class PostDetails extends AppCompatActivity {
             id_baiviet = post.getIdbaiviet();
             email = post.getEmailnguoidung();
             hinhanhbaiviet = post.getHinhanh();
-            tv_username.setText(post.getTennguoidung());
-            tv_thoigian.setText(post.getThoigian());
+            tennguoidung=post.getTennguoidung();
+            thoigian=post.getThoigian();
             noidung=post.getNoidung();
-            if (TextUtils.isEmpty(post.getTieude())) {
+            tieude=post.getTieude();
+            anhdaidien=post.getAnhdaidien();
+            tv_username.setText(tennguoidung);
+            tv_thoigian.setText(thoigian);
+            if (TextUtils.isEmpty(tieude)) {
                 tv_noidung.setText(noidung);
             } else {
-                tv_noidung.setText(post.getTieude().toUpperCase() + "\n" + noidung);
+                tv_noidung.setText(tieude.toUpperCase() + "\n" + noidung);
             }
-            if (TextUtils.isEmpty(post.getHinhanh())) {
+            if (TextUtils.isEmpty(hinhanhbaiviet)) {
                 img_hinhanh.setVisibility(View.GONE);
             } else {
-                Picasso.with(PostDetails.this).load(post.getHinhanh())
+                Picasso.with(PostDetails.this).load(hinhanhbaiviet)
                         .placeholder(R.drawable.ic_image_black_24dp)
                         .error(R.drawable.ic_broken_image_black_24dp)
                         .into(img_hinhanh);
             }
-            Picasso.with(PostDetails.this).load(post.getAnhdaidien())
+            Picasso.with(PostDetails.this).load(anhdaidien)
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(img_avt_user);
@@ -161,10 +160,10 @@ public class PostDetails extends AppCompatActivity {
             id_baiviet=getIntent().getStringExtra("id_baiviet");
             email=getIntent().getStringExtra("email");
             hinhanhbaiviet=getIntent().getStringExtra("hinhanh");
-            String tennguoidung=getIntent().getStringExtra("tennguoidung");
-            String thoigian=getIntent().getStringExtra("thoigian");
-            String noidung=getIntent().getStringExtra("tieude").toUpperCase()+"\n"+getIntent().getStringExtra("noidung");
-            String anhdaidien=getIntent().getStringExtra("anhdaidien");
+            tennguoidung=getIntent().getStringExtra("tennguoidung");
+            thoigian=getIntent().getStringExtra("thoigian");
+            noidung=getIntent().getStringExtra("tieude").toUpperCase()+"\n"+getIntent().getStringExtra("noidung");
+            anhdaidien=getIntent().getStringExtra("anhdaidien");
             tv_username.setText(tennguoidung);
             tv_thoigian.setText(thoigian);
             tv_noidung.setText(noidung);
@@ -222,24 +221,25 @@ public class PostDetails extends AppCompatActivity {
         img_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String noidung = edt_nhapcmt.getText().toString();
-                String user_email=mUser.getEmail();
-                postComment(noidung, id_baiviet, user_email);
+                String noidungcmt = edt_nhapcmt.getText().toString();
+                String user_emailcmt=MyFirebaseMessagingService.mUser.getEmail();
+                postComment(noidungcmt, id_baiviet, user_emailcmt);
             }
         });
 
     }
 
-    private void postComment(String noidung, String id_baiviet, String email) {
+    private void postComment(final String noidungcmt, String id_baiviet, String emailcmt) {
         DataClient dataClient = APIUntils.getData();
-        Call<String> callback = dataClient.nguoidung_thembinhluan(noidung, id_baiviet, email);
+        Call<String> callback = dataClient.nguoidung_thembinhluan(noidungcmt, id_baiviet, emailcmt);
         callback.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String mess = response.body();
                 if (mess.equals("success")) {
+                    pushNotification(noidungcmt);
                     getDataComment();
-                    edt_nhapcmt.setText("");
+
                 }
                 if (mess.equals("fail")) {
                     Toast.makeText(PostDetails.this, "Khong them dc comment", Toast.LENGTH_SHORT).show();
@@ -253,10 +253,30 @@ public class PostDetails extends AppCompatActivity {
         });
     }
 
+    private void pushNotification(String noidungcmt) {
+        DataClient dataClient=APIUntils.getData();
+        String topics="/topics/"+id_baiviet;
+        String title=MyFirebaseMessagingService.mUser.getDisplayName()+" đã bình luận";
+        String body=noidungcmt;
+        Call<Message> callback=dataClient.push_notification(topics,title,body,id_baiviet,email,hinhanhbaiviet,tennguoidung,noidung,tieude,anhdaidien);
+        callback.enqueue(new Callback<Message>() {
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                edt_nhapcmt.setText("");
+                FirebaseMessaging.getInstance().subscribeToTopic(id_baiviet);
+            }
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+
+            }
+        });
+
+    }
+
     private void showMenu() {
         PopupMenu popupMenu = new PopupMenu(this, img_more);
         popupMenu.getMenuInflater().inflate(R.menu.menu_tuychonbaiviet2, popupMenu.getMenu());
-        if (!mUser.getEmail().equals(email)) {
+        if (!MyFirebaseMessagingService.mUser.getEmail().equals(email)) {
             popupMenu.getMenu().findItem(R.id.menu_tuychon_xoabaiviet).setEnabled(false);
             popupMenu.getMenu().findItem(R.id.menu_tuychon_chinhsua).setEnabled(false);
         }
@@ -358,7 +378,7 @@ public class PostDetails extends AppCompatActivity {
         final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.menu_comment_xoa) {
             String emailnguoibinhluan = mlist.get(info.position).getEmail();
-            if (emailnguoibinhluan.equals(mUser.getEmail())) {
+            if (emailnguoibinhluan.equals(MyFirebaseMessagingService.mUser.getEmail())) {
                 AlertDialog.Builder diaBuilder = new AlertDialog.Builder(PostDetails.this);
                 diaBuilder.setTitle("Xóa bình luận");
                 diaBuilder.setMessage("Bạn có muốn xóa bình luận này không?");

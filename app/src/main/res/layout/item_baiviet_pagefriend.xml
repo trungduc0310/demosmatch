@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:padding="5dp"
     >
 <RelativeLayout
+    android:id="@+id/relative_infouser"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
@@ -48,15 +48,13 @@
         android:layout_alignParentRight="true"
         android:background="#00ffffff"
         android:src="@drawable/ic_more_horiz_black_24dp" />
-
 </RelativeLayout>
-
-    <LinearLayout
+    <RelativeLayout
+        android:layout_below="@id/relative_infouser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="vertical">
-
         <TextView
             android:id="@+id/itempagefriend_tv_noidungbv"
             android:layout_width="match_parent"
@@ -70,6 +68,8 @@
             android:textColor="#000" />
 
         <ImageView
+            android:layout_centerInParent="true"
+            android:layout_below="@id/itempagefriend_tv_noidungbv"
             android:id="@+id/item_img_itempagefriend_hinhanhbaiviet"
             android:layout_width="wrap_content"
             android:layout_height="250dp"
@@ -80,24 +80,24 @@
             android:foreground="?attr/selectableItemBackground"
             android:maxWidth="250dp"
             android:maxHeight="250dp" />
-    </LinearLayout>
-    <TextView
-        android:padding="10dp"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        android:layout_marginTop="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Xem chi tiết bài viết"
-        android:textColor="#acabab"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:id="@+id/itempagefriend_btn_binhluan"
-        android:layout_marginBottom="30dp" >
-    </TextView>
+        <TextView
+            android:layout_below="@id/item_img_itempagefriend_hinhanhbaiviet"
+            android:padding="10dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Xem chi tiết bài viết"
+            android:textColor="#acabab"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:id="@+id/itempagefriend_btn_binhluan"
+            >
+        </TextView>
+    </RelativeLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

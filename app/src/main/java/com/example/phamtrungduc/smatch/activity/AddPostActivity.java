@@ -28,11 +28,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.entity.Message;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.adapter.AreaAdapter;
 import com.example.phamtrungduc.smatch.entity.Area;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -54,22 +56,22 @@ import retrofit2.Response;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 public class AddPostActivity extends AppCompatActivity {
-    ImageView img_back, img_inserthinhanh;
-    CircleImageView img_avt;
-    TextView tv_username;
-    CheckBox cb_timtrandau;
-    EditText edt_noidung;
-    LinearLayout ln_timkhuvuc;
-    ProgressBar pro_thembaiviet;
-    Button btn_insert;
-    Spinner spinner_khuvuc;
-    List<Area> danhsachkhuvuc;
-    AreaAdapter areaAdapter;
-    private int REQUEST_CODE_IMAGE = 1;
-    String real_path;
-    String anhbaiviet = null;
-    String id_baiviet = null;
-    String tieude = null;
+    private ImageView img_back, img_inserthinhanh;
+    private CircleImageView img_avt;
+    private TextView tv_username;
+    private CheckBox cb_timtrandau;
+    private EditText edt_noidung;
+    private LinearLayout ln_timkhuvuc;
+    private ProgressBar pro_thembaiviet;
+    private Button btn_insert;
+    private Spinner spinner_khuvuc;
+    private List<Area> danhsachkhuvuc;
+    private AreaAdapter areaAdapter;
+    private final int REQUEST_CODE_IMAGE = 1;
+    private String real_path;
+    private String anhbaiviet = null;
+    private String id_baiviet = null;
+    private String tieude = null;
 
 
     @Override
@@ -89,11 +91,11 @@ public class AddPostActivity extends AppCompatActivity {
     }
 
     private void getProfile() {
-        Picasso.with(this).load(String.valueOf(HomeActivity.mUser.getPhotoUrl()))
+        Picasso.with(this).load(String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()))
                 .placeholder(R.drawable.ic_image_black_24dp)
                 .error(R.drawable.ic_broken_image_black_24dp)
                 .into(img_avt);
-        tv_username.setText(HomeActivity.mUser.getDisplayName());
+        tv_username.setText(MyFirebaseMessagingService.mUser.getDisplayName());
     }
 
     private void SetDataSpinner() {
@@ -212,14 +214,13 @@ public class AddPostActivity extends AppCompatActivity {
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        pro_thembaiviet.setVisibility(View.GONE);
-                        btn_insert.setVisibility(View.VISIBLE);
+
                         String message = response.body();
                         if (message.length() > 0) {
                             anhbaiviet = APIUntils.base_url + "image/image_hinhanhbaiviet/" + message;
                             DataClient dataClient1 = APIUntils.getData();
                             if (TextUtils.isEmpty(tieude)){
-                                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, HomeActivity.mUser.getEmail(), noidung, tieude, anhbaiviet);
+                                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, MyFirebaseMessagingService.mUser.getEmail(), noidung, tieude, anhbaiviet);
                                 callback.enqueue(new Callback<String>() {
                                     @Override
                                     public void onResponse(Call<String> call, Response<String> response) {
@@ -234,23 +235,24 @@ public class AddPostActivity extends AppCompatActivity {
                             }else{
                                 final String title=tieude;
                                 final String body="Nhấn để nhận kèo thôi nào!";
-                                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, HomeActivity.mUser.getEmail(), noidung, tieude, anhbaiviet);
+                                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, MyFirebaseMessagingService.mUser.getEmail(), noidung, tieude, anhbaiviet);
                                 callback.enqueue(new Callback<String>() {
                                     @Override
                                     public void onResponse(Call<String> call, Response<String> response) {
+                                        String topics="/topics/news";
                                         DataClient dataClient2= APIUntils.getData();
-                                        Call<Message> callback= dataClient2.push_notification(title,body,id_baiviet,HomeActivity.mUser.getEmail(),anhbaiviet,HomeActivity.mUser.getDisplayName(),noidung,tieude, String.valueOf(HomeActivity.mUser.getPhotoUrl()));
+                                        Call<Message> callback= dataClient2.push_notification(topics,title,body,id_baiviet,MyFirebaseMessagingService.mUser.getEmail(),anhbaiviet,MyFirebaseMessagingService.mUser.getDisplayName(),noidung,tieude, String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()));
                                         callback.enqueue(new Callback<Message>() {
                                             @Override
                                             public void onResponse(Call<Message> call, Response<Message> response) {
+                                                pro_thembaiviet.setVisibility(View.GONE);
+                                                btn_insert.setVisibility(View.VISIBLE);
+                                                FirebaseMessaging.getInstance().subscribeToTopic(id_baiviet);
                                                 startActivity(new Intent(AddPostActivity.this, HomeActivity.class));
                                             }
-
                                             @Override
                                             public void onFailure(Call<Message> call, Throwable t) {
-//                                                startActivity(new Intent(AddPostActivity.this, HomeActivity.class));
                                                 Log.d("push_notification", t.getMessage());
-
                                             }
                                         });
                                     }
@@ -276,7 +278,7 @@ public class AddPostActivity extends AppCompatActivity {
         catch (NullPointerException nex){
             DataClient dataClient1 = APIUntils.getData();
             if (TextUtils.isEmpty(tieude)){
-                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, HomeActivity.mUser.getEmail(), noidung, tieude, anhbaiviet);
+                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, MyFirebaseMessagingService.mUser.getEmail(), noidung, tieude, anhbaiviet);
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
@@ -295,17 +297,19 @@ public class AddPostActivity extends AppCompatActivity {
             }else{
                 final String title=tieude;
                 final String body="Nhấn để nhận kèo thôi nào!";
-                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, HomeActivity.mUser.getEmail(), noidung, tieude, anhbaiviet);
+                Call<String> callback = dataClient1.nguoidung_thembaiviet(id_baiviet, MyFirebaseMessagingService.mUser.getEmail(), noidung, tieude, anhbaiviet);
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
+                        String topics="/topics/news";
                         DataClient dataClient2= APIUntils.getData();
-                        Call<Message> callback= dataClient2.push_notification(title,body,id_baiviet,HomeActivity.mUser.getEmail(),anhbaiviet,HomeActivity.mUser.getDisplayName(),noidung,tieude, String.valueOf(HomeActivity.mUser.getPhotoUrl()));
+                        Call<Message> callback= dataClient2.push_notification(topics,title,body,id_baiviet,MyFirebaseMessagingService.mUser.getEmail(),anhbaiviet,MyFirebaseMessagingService.mUser.getDisplayName(),noidung,tieude, String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()));
                         callback.enqueue(new Callback<Message>() {
                             @Override
                             public void onResponse(Call<Message> call, Response<Message> response) {
                                 pro_thembaiviet.setVisibility(View.GONE);
                                 btn_insert.setVisibility(View.VISIBLE);
+                                FirebaseMessaging.getInstance().subscribeToTopic(id_baiviet);
                                 startActivity(new Intent(AddPostActivity.this, HomeActivity.class));
                             }
                             @Override

@@ -38,13 +38,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btndangnhap;
-    TextView tv_thongbao;
-    TextView tvdangky,tvforgotpass;
-    EditText edtemail, edtpass;
-    ProgressBar progress_dangnhap;
-    List<User> thongtinnguoidung;
-    FirebaseAuth mAuth;
+    private Button btndangnhap;
+    private TextView tv_thongbao;
+    private TextView tvdangky,tvforgotpass;
+    private EditText edtemail, edtpass;
+    private ProgressBar progress_dangnhap;
+    private List<User> thongtinnguoidung;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

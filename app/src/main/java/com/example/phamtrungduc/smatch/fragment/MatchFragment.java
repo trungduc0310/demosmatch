@@ -31,13 +31,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MatchFragment extends Fragment {
-    List<Match> dssanbong;
-    List<Area> dskhuvuc = new ArrayList<>();
-    ListView lvdssanbong;
-    MatchAdapter adapter;
-    AreaAdapter adapterkhuvuc;
-    Spinner spinnerKhuvuc;
-    TextView thongbaosanbong;
+    private List<Match> dssanbong;
+    private List<Area> dskhuvuc = new ArrayList<>();
+    private ListView lvdssanbong;
+    private MatchAdapter adapter;
+    private AreaAdapter adapterkhuvuc;
+    private Spinner spinnerKhuvuc;
+    private TextView thongbaosanbong;
 
     int id_spinner;
 

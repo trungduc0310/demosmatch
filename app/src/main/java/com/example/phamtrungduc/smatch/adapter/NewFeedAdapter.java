@@ -27,9 +27,9 @@ import androidx.appcompat.app.AlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewFeedAdapter extends ArrayAdapter<Post> {
-    Context mContext;
-    int mLayout;
-    List<Post> mList;
+    private Context mContext;
+    private int mLayout;
+    private List<Post> mList;
 
     public NewFeedAdapter(Context context, int resource, List<Post> objects) {
         super(context, resource, objects);
@@ -72,7 +72,7 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
         } else {
             viewHolder.tvnoidung.setText(mList.get(position).getTieude().toUpperCase() + "\n" + mList.get(position).getNoidung());
         }
-        viewHolder.tvdate.setText(xulyngay(mList.get(position).getThoigian()));
+        viewHolder.tvdate.setText(mList.get(position).getThoigian());
 
         Picasso.with(mContext).load(mList.get(position).getAnhdaidien())
                 .error(R.drawable.ic_broken_image_black_24dp)
@@ -163,9 +163,5 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
         popupMenu.show();
     }
 
-    public String xulyngay(String ngay) {
-        String[] xuly = ngay.split("\\-");
-        ngay = xuly[2] + "/" + xuly[1] + "/" + xuly[0];
-        return ngay;
-    }
+
 }

@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,14 +34,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ChangepasswordActivity extends AppCompatActivity {
-    ImageView img_back;
-    EditText edt_matkhaucu;
-    EditText edt_matkhaumoi;
-    EditText edt_nhaplaimatkhaumoi;
-    CheckBox cb_showpass;
-    Button btn_doipass;
-    ProgressBar pro_doipass;
-    String email_nguoidung;
+    private ImageView img_back;
+    private EditText edt_matkhaucu,edt_matkhaumoi,edt_nhaplaimatkhaumoi;
+    private CheckBox cb_showpass;
+    private Button btn_doipass;
+    private ProgressBar pro_doipass;
+    private String email_nguoidung="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,12 +184,12 @@ public class ChangepasswordActivity extends AppCompatActivity {
     }
 
     private void DoimatkhauFirebase(final View v, String matkhaucu, final String matkhaumoi) {
-        AuthCredential credential=EmailAuthProvider.getCredential(HomeActivity.mUser.getEmail(),matkhaucu);
-        HomeActivity.mUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+        AuthCredential credential=EmailAuthProvider.getCredential(MyFirebaseMessagingService.mUser.getEmail(),matkhaucu);
+        MyFirebaseMessagingService.mUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    HomeActivity.mUser.updatePassword(matkhaumoi).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    MyFirebaseMessagingService.mUser.updatePassword(matkhaumoi).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
@@ -220,6 +219,6 @@ public class ChangepasswordActivity extends AppCompatActivity {
         btn_doipass=findViewById(R.id.btn_doipass);
         pro_doipass=findViewById(R.id.progress_doipass);
         pro_doipass.setVisibility(View.INVISIBLE);
-        email_nguoidung=HomeActivity.mUser.getEmail();
+        email_nguoidung=MyFirebaseMessagingService.mUser.getEmail();
     }
 }

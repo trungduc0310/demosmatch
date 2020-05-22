@@ -16,10 +16,10 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MatchAdapter extends ArrayAdapter<Match> {
-    Context mContext;
-    int mLayout;
-    List<Match> mList;
-    String icon_hinhanh="http://icons.iconarchive.com/icons/iconshock/soccer/256/soccer-4-icon.png";
+    private Context mContext;
+    private int mLayout;
+    private List<Match> mList;
+    private final String icon_hinhanh="http://icons.iconarchive.com/icons/iconshock/soccer/256/soccer-4-icon.png";
     public MatchAdapter(Context context, int resource, List<Match> objects) {
         super(context, resource, objects);
         mContext=context;
@@ -29,7 +29,6 @@ public class MatchAdapter extends ArrayAdapter<Match> {
     public class ViewHolder{
         TextView tvtensan,tvdiachi,tvsdt;
         ImageView imgavt;
-       ImageButton imgcall;
     }
 
 

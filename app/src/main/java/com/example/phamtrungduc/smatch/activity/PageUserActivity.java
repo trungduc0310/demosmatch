@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.adapter.NewFeedAdapter;
@@ -36,23 +37,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PageUserActivity extends AppCompatActivity {
-    TextView tvusername,tv_thongbao;
-    CircleImageView imgavt;
-    ProgressBar progressBar;
-    ImageView img_back;
-    ImageButton imgbtn_edit_profile;
-    NewFeedAdapter adapter;
-    ListView lv_dsbaidang;
-    List<Post> dsbaiviet;
-    EditText edt_timkiem;
-    String username;
-    String anhdaidien;
-    View footerView;
-    mHander hander;
-    boolean limitdata=false;
-    boolean loading=false;
-    int page=1;
-    String email_nguoidung;
+    private TextView tvusername,tv_thongbao;
+    private CircleImageView imgavt;
+    private ProgressBar progressBar;
+    private ImageView img_back;
+    private ImageButton imgbtn_edit_profile;
+    private NewFeedAdapter adapter;
+    private ListView lv_dsbaidang;
+    private List<Post> dsbaiviet;
+    private EditText edt_timkiem;
+    private String username="",anhdaidien="";
+    private View footerView;
+    private mHander hander;
+    private boolean limitdata=false;
+    private boolean loading=false;
+    private int page=1;
+    private String email_nguoidung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,15 +181,15 @@ public class PageUserActivity extends AppCompatActivity {
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(imgavt);
-            if (HomeActivity.mUser.getEmail().equals(post.getEmailnguoidung())){
+            if (MyFirebaseMessagingService.mUser.getEmail().equals(post.getEmailnguoidung())){
                 imgbtn_edit_profile.setVisibility(View.VISIBLE);
             }else{
                 imgbtn_edit_profile.setVisibility(View.GONE);
             }
         }else{
-            email_nguoidung=HomeActivity.mUser.getEmail();
-            username=HomeActivity.mUser.getDisplayName();
-            anhdaidien= String.valueOf(HomeActivity.mUser.getPhotoUrl());
+            email_nguoidung=MyFirebaseMessagingService.mUser.getEmail();
+            username=MyFirebaseMessagingService.mUser.getDisplayName();
+            anhdaidien= String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl());
             tvusername.setText(username);
             Picasso.with(PageUserActivity.this).load(anhdaidien)
                     .placeholder(R.drawable.ic_image_black_24dp)

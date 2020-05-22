@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.smatch.R;
+import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.activity.HomeActivity;
 import com.example.phamtrungduc.smatch.activity.LoginActivity;
 import com.example.phamtrungduc.smatch.activity.ChangepasswordActivity;
@@ -22,9 +23,9 @@ import androidx.fragment.app.Fragment;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionFragment extends Fragment {
-    LinearLayout linearLayout;
-    TextView tv_logout,tv_changepass,tv_username;
-    CircleImageView img_avt;
+    private LinearLayout linearLayout;
+    private TextView tv_logout,tv_changepass,tv_username;
+    private CircleImageView img_avt;
 
 
     public OptionFragment() {
@@ -47,11 +48,11 @@ public class OptionFragment extends Fragment {
     }
 
     private void getProfile() {
-        Picasso.with(getContext()).load(String.valueOf(HomeActivity.mUser.getPhotoUrl()))
+        Picasso.with(getContext()).load(String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()))
                 .placeholder(R.drawable.ic_image_black_24dp)
                 .error(R.drawable.ic_broken_image_black_24dp)
                 .into(img_avt);
-        tv_username.setText(HomeActivity.mUser.getDisplayName());
+        tv_username.setText(MyFirebaseMessagingService.mUser.getDisplayName());
     }
 
     private void EventClick() {
@@ -77,7 +78,7 @@ public class OptionFragment extends Fragment {
 
     private void Logout() {
         FirebaseMessaging.getInstance().unsubscribeFromTopic("news");
-        HomeActivity.mAuth.signOut();
+        MyFirebaseMessagingService.mAuth.signOut();
         startActivity(new Intent(getContext(),LoginActivity.class));
     }
 
