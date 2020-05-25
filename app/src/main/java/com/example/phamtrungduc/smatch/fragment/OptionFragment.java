@@ -9,8 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
-import com.example.phamtrungduc.smatch.activity.HomeActivity;
+import com.example.phamtrungduc.smatch.servicenotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.activity.LoginActivity;
 import com.example.phamtrungduc.smatch.activity.ChangepasswordActivity;
 import com.example.phamtrungduc.smatch.activity.PageUserActivity;

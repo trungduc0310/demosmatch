@@ -2,13 +2,10 @@ package com.example.phamtrungduc.smatch.fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +14,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
+import com.example.phamtrungduc.smatch.servicenotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.activity.HomeActivity;
 import com.example.phamtrungduc.smatch.activity.PostDetails;
 import com.example.phamtrungduc.smatch.adapter.NotificationAdapter;
 import com.example.phamtrungduc.smatch.entity.Post;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,21 +30,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static java.util.Objects.*;
 
 
 public class NotificationFragment extends Fragment {

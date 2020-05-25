@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,14 +15,12 @@ import android.view.View;
 
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
+import com.example.phamtrungduc.smatch.servicenotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.adapter.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
+import com.example.phamtrungduc.smatch.servicenotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.google.android.gms.tasks.OnCompleteListener;

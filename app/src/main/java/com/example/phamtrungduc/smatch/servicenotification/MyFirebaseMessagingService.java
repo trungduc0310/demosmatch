@@ -1,4 +1,4 @@
-package com.example.phamtrungduc.smatch.ServiceNotification;
+package com.example.phamtrungduc.smatch.servicenotification;
 
 
 import android.app.NotificationChannel;
@@ -11,10 +11,8 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.activity.HomeActivity;
 import com.example.phamtrungduc.smatch.activity.PostDetails;
 import com.example.phamtrungduc.smatch.entity.Post;
-import com.example.phamtrungduc.smatch.fragment.NotificationFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;

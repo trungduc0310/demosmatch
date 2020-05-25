@@ -29,15 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phamtrungduc.smatch.R;
-import com.example.phamtrungduc.smatch.ServiceNotification.MyFirebaseMessagingService;
+import com.example.phamtrungduc.smatch.servicenotification.MyFirebaseMessagingService;
 import com.example.phamtrungduc.smatch.entity.Message;
 import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.adapter.CommentAdapter;
 import com.example.phamtrungduc.smatch.entity.Post;
 import com.example.phamtrungduc.smatch.entity.Comment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 

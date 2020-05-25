@@ -40,7 +40,7 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
 
     public class ViewHolder {
         CircleImageView imgavt;
-        TextView tvuser, tvdate, tvnoidung, tv_more;
+        TextView tvuser, tvdate, tvnoidung;
         TextView btn_chitietbaiviet;
         ImageView img_hinhanhbaiviet;
         ImageButton imgbtn_more;

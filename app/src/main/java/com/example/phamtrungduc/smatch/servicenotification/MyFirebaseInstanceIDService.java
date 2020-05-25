@@ -1,6 +1,5 @@
-package com.example.phamtrungduc.smatch.ServiceNotification;
+package com.example.phamtrungduc.smatch.servicenotification;
 
-import android.app.Service;
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
