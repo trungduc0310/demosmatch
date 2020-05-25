@@ -4,47 +4,55 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/ln_bangtin_status"
+    <androidx.cardview.widget.CardView
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_gravity="center"
-            android:src="@drawable/ic_account"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/img_bangtin_useravt"/>
-        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        app:cardElevation="4dp"
+        app:cardCornerRadius="7dp"
+        >
+        <LinearLayout
+            android:padding="7dp"
+            android:id="@+id/ln_bangtin_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center"
+                android:src="@drawable/ic_account"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/img_bangtin_useravt"/>
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:src="@drawable/ic_account"-->
             <!--/>-->
-        <EditText
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Bạn muốn đăng gì?"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/edt_bangtin_dangbai"/>
-        <ImageButton
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:background="@drawable/background_image_circle"
-            android:layout_gravity="center"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_image_black_24dp"
-            android:id="@+id/btnimg_bangtin_themhinhanh"
-            />
-    </LinearLayout>
+            <EditText
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bạn muốn đăng gì?"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/edt_bangtin_dangbai"/>
+            <ImageButton
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/background_image_circle"
+                android:layout_gravity="center"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_image_black_24dp"
+                android:id="@+id/btnimg_bangtin_themhinhanh"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

@@ -23,6 +23,7 @@ import com.example.phamtrungduc.smatch.retrofit2.APIUntils;
 import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -151,11 +152,18 @@ public class LoginActivity extends AppCompatActivity {
                     DangnhapMySQL(v,email.trim(),password);
                 }
                 else{
+                    Log.d("FailLogincomplete", task.toString());
                     v.setEnabled(true);
                     v.setVisibility(View.VISIBLE);
                     progress_dangnhap.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "Sai tài khoản, Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("FailLoginfailure", e.toString());
+
             }
         });
     }

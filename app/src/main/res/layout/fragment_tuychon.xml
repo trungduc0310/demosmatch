@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="10dp">
     <ScrollView
@@ -12,10 +13,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="4dp">
+            <LinearLayout
                 android:id="@+id/ln_fragmenttuychon_viewprifile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,43 +59,61 @@
 
                 </LinearLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#FFF">
+            </androidx.cardview.widget.CardView>
 
-            </View>
-            <TextView
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:layout_marginTop="10dp"
-                android:id="@+id/tv_tuychon_changepass"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="7dp"
-                android:text="Đổi mật khẩu"
-                android:textSize="18sp"
-                android:gravity="center_vertical"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
-                android:drawableLeft="@drawable/ic_lock_black_24dp" />
-            <TextView
-                android:clickable="true"
-                android:focusable="true"
-                android:drawablePadding="7dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:layout_marginTop="5dp"
-                android:id="@+id/tv_tuychon_logout"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Đăng xuất"
-                android:textSize="18sp"
-                android:gravity="center_vertical"
-                android:drawableLeft="@drawable/ic_forward_black_24dp"
-                android:drawableStart="@drawable/ic_forward_black_24dp"
-                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <androidx.cardview.widget.CardView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="4dp">
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/tv_tuychon_changepass"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="7dp"
+                            android:text="Đổi mật khẩu"
+                            android:textSize="18sp"
+                            android:gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_lock_black_24dp"
+                            android:drawableLeft="@drawable/ic_lock_black_24dp" />
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="4dp">
+                        <TextView
+                            android:drawablePadding="7dp"
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/tv_tuychon_logout"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Đăng xuất"
+                            android:textSize="18sp"
+                            android:gravity="center_vertical"
+                            android:drawableLeft="@drawable/ic_forward_black_24dp"
+                            android:drawableStart="@drawable/ic_forward_black_24dp"
+                            />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
         </LinearLayout>
 
 

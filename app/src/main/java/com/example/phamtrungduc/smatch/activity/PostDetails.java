@@ -36,6 +36,8 @@ import com.example.phamtrungduc.smatch.retrofit2.DataClient;
 import com.example.phamtrungduc.smatch.adapter.CommentAdapter;
 import com.example.phamtrungduc.smatch.entity.Post;
 import com.example.phamtrungduc.smatch.entity.Comment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
@@ -55,6 +57,9 @@ public class PostDetails extends AppCompatActivity {
     private String id_baiviet,noidung,tennguoidung,thoigian,tieude,anhdaidien;
     private String hinhanhbaiviet;
     private String email;
+    private FirebaseAuth mauth=FirebaseAuth.getInstance();
+    private FirebaseUser mUser=mauth.getCurrentUser();
+
 
 
     @Override
@@ -75,7 +80,7 @@ public class PostDetails extends AppCompatActivity {
 
     private void getProfile() {
         try{
-            Picasso.with(this).load(String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl()))
+            Picasso.with(this).load(String.valueOf(mUser.getPhotoUrl()))
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(img_avt);
