@@ -149,6 +149,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+
                     DangnhapMySQL(v,email.trim(),password);
                 }
                 else{
@@ -176,11 +177,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 v.setEnabled(true);
                 progress_dangnhap.setVisibility(View.GONE);
-                thongtinnguoidung=response.body();
                 Intent intent= new Intent(LoginActivity.this,HomeActivity.class);
-//                intent.putParcelableArrayListExtra("thongtinnguoidung", (ArrayList<? extends Parcelable>) thongtinnguoidung);
                 startActivity(intent);
-                onStop();
             }
 
             @Override

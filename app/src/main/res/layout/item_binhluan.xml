@@ -1,47 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:padding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/img_itembinhluan_avt"/>
-        <LinearLayout
-            android:padding="5dp"
-            android:background="@drawable/background_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginLeft="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Trung Đức"
-                android:textStyle="bold"
-                android:textColor="#020202"
-                android:id="@+id/tv_itembinhluan_username"
-                android:textSize="16sp"/>
-            <TextView
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_itembinhluan_noidung"/>
-        </LinearLayout>
-    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_itembinhluan_avt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_marginLeft="5dp"
-        android:textSize="10dp"
-        android:textColor="#3A3434"
+        android:id="@+id/tv_itembinhluan_username"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:text="Trung Đức"
+        android:textColor="#020202"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/img_itembinhluan_avt" />
+
+    <TextView
+        android:id="@+id/tv_itembinhluan_noidung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000"
+        app:layout_constraintStart_toEndOf="@id/img_itembinhluan_avt"
+        app:layout_constraintTop_toBottomOf="@id/tv_itembinhluan_username" />
+
+    <TextView
+        android:id="@+id/tv_itembinhluan_ngaythang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
         android:text="10-11-2019"
-        android:id="@+id/tv_itembinhluan_ngaythang"/>
-</LinearLayout>
+        android:textColor="#3A3434"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_itembinhluan_avt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

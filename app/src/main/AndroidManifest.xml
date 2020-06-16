@@ -22,7 +22,6 @@
             android:value="false" />
         <activity
             android:name="com.example.phamtrungduc.smatch.activity.HomeActivity"
-            android:label="@string/title_activity_trangchu"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

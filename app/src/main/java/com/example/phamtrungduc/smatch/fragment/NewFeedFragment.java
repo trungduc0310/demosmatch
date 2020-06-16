@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,9 +52,9 @@ public class NewFeedFragment extends Fragment {
     private NewFeedAdapter adapter;
     private View footerView;
     private mHander hander;
-    private boolean limitdata=false;
-    private boolean loading=false;
-    private int page=1;
+    private boolean limitdata = false;
+    private boolean loading = false;
+    private int page = 1;
 
     public NewFeedFragment() {
     }
@@ -67,6 +70,7 @@ public class NewFeedFragment extends Fragment {
 
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -80,8 +84,8 @@ public class NewFeedFragment extends Fragment {
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE
                         && (lvbangtin.getLastVisiblePosition() - lvbangtin.getHeaderViewsCount() -
-                        lvbangtin.getFooterViewsCount()) >= (adapter.getCount() - 1)){
-                    if (loading==false&&limitdata==false){
+                        lvbangtin.getFooterViewsCount()) >= (adapter.getCount() - 1)) {
+                    if (loading == false && limitdata == false) {
                         loading = true;
                         ThreadData threadData = new ThreadData();
                         threadData.start();
@@ -91,9 +95,7 @@ public class NewFeedFragment extends Fragment {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//                if (firstVisibleItem+visibleItemCount==totalItemCount&&totalItemCount!=0&&loading==false&&limitdata==false){
 
-//                }
             }
         });
     }
@@ -104,29 +106,28 @@ public class NewFeedFragment extends Fragment {
                     .placeholder(R.drawable.ic_image_black_24dp)
                     .error(R.drawable.ic_broken_image_black_24dp)
                     .into(imgavtuser);
-//            Log.d("anhdaidienphotoUri", String.valueOf(HomeActivity.mUser.getPhotoUrl()));
-        }catch (NullPointerException nex){
+        } catch (NullPointerException nex) {
 
         }
 
     }
 
     private void LoadDataNewFeed(int page) {
-        DataClient dataClient=APIUntils.getData();
-        final Call<List<Post>> callback=dataClient.nguoidung_getbaiviet(page);
+        DataClient dataClient = APIUntils.getData();
+        final Call<List<Post>> callback = dataClient.nguoidung_getbaiviet(page);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 callback.enqueue(new Callback<List<Post>>() {
                     @Override
                     public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                        try{
+                        try {
                             HomeActivity.tv_thongbao.setVisibility(View.GONE);
                             pro_bangtin.setVisibility(View.GONE);
-                            List<Post> post1 =response.body();
-                            if (response!=null && response.body().size()>0){
+                            List<Post> post1 = response.body();
+                            if (response != null && response.body().size() > 0) {
                                 lvbangtin.removeFooterView(footerView);
-                                for (int i = 0; i< post1.size(); i++){
+                                for (int i = 0; i < post1.size(); i++) {
                                     dsbaiviet.add(new Post(post1.get(i).getIdbaiviet(), post1.get(i).getEmailnguoidung(), post1.get(i).getTennguoidung()
                                             , post1.get(i).getNoidung(), post1.get(i).getThoigian(), post1.get(i).getTieude(), post1.get(i).getHinhanh()
                                             , post1.get(i).getAnhdaidien()));
@@ -138,12 +139,12 @@ public class NewFeedFragment extends Fragment {
                                     }
                                 });
                             }
-                        }catch (NullPointerException nex){
-                            limitdata=true;
+                        } catch (NullPointerException nex) {
+                            limitdata = true;
                             lvbangtin.removeFooterView(footerView);
-//                    Toast.makeText(getContext(), "Đã hết bài viết", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                     @Override
                     public void onFailure(Call<List<Post>> call, Throwable t) {
                         Log.d("dsbaiviet", t.getMessage());
@@ -177,34 +178,35 @@ public class NewFeedFragment extends Fragment {
         edtdangbai = view.findViewById(R.id.edt_bangtin_dangbai);
         ibtndangbai = view.findViewById(R.id.btnimg_bangtin_themhinhanh);
         lvbangtin = view.findViewById(R.id.lv_dsbangtin);
-        ln_status=view.findViewById(R.id.ln_bangtin_status);
-        pro_bangtin=view.findViewById(R.id.progress_bangtin);
+        ln_status = view.findViewById(R.id.ln_bangtin_status);
+        pro_bangtin = view.findViewById(R.id.progress_bangtin);
         pro_bangtin.setVisibility(View.VISIBLE);
-        LayoutInflater inflater= (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        footerView=inflater.inflate(R.layout.processbar,null);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        footerView = inflater.inflate(R.layout.processbar, null);
         edtdangbai.setFocusable(false);
-        dsbaiviet= new ArrayList<>();
+        dsbaiviet = new ArrayList<>();
         adapter = new NewFeedAdapter(getContext(), R.layout.item_baiviet_pagefriend, dsbaiviet);
-        hander= new mHander();
+        hander = new mHander();
         lvbangtin.setAdapter(adapter);
-
     }
-    class mHander extends Handler{
+
+    class mHander extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case 0:
                     lvbangtin.addFooterView(footerView);
                     break;
                 case 1:
                     LoadDataNewFeed(++page);
-                    loading=false;
+                    loading = false;
                     break;
             }
             super.handleMessage(msg);
         }
     }
-    public class ThreadData extends Thread{
+
+    public class ThreadData extends Thread {
         @Override
         public void run() {
             hander.sendEmptyMessage(0);
@@ -213,7 +215,7 @@ public class NewFeedFragment extends Fragment {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Message message=hander.obtainMessage(1);
+            Message message = hander.obtainMessage(1);
             hander.sendMessage(message);
             super.run();
         }

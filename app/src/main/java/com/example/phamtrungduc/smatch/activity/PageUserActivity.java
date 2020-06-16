@@ -59,13 +59,12 @@ public class PageUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pageuser);
         AnhXa();
-
+        getProfile();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        getProfile();
         getPost(email_nguoidung,page);
         loadMoreData();
         EventClick();
@@ -116,7 +115,6 @@ public class PageUserActivity extends AppCompatActivity {
                 }catch (NullPointerException nex){
                     limitdata=true;
                     lv_dsbaidang.removeFooterView(footerView);
-//                    Toast.makeText(PageUserActivity.this, "Đã hết bài viết", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -197,7 +195,6 @@ public class PageUserActivity extends AppCompatActivity {
                     .into(imgavt);
             imgbtn_edit_profile.setVisibility(View.VISIBLE);
         }
-
     }
 
 

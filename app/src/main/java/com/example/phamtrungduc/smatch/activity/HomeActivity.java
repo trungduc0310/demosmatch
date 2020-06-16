@@ -47,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
         Anhxa();
+        CustomActionBar();
         Kiemtradangnhap();
     }
 
@@ -54,7 +55,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Kiemtraketnoi();
-        CustomActionBar();
         Reconnect();
 
     }
@@ -82,10 +82,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private void CustomActionBar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View actionbar_view=inflater.inflate(R.layout.custom_actionbar_trangchu,null);
-        getSupportActionBar().setCustomView(actionbar_view);
     }
 
 
@@ -126,6 +122,7 @@ public class HomeActivity extends AppCompatActivity {
         for (int i=0;i<4;i++){
             mTablayout.getTabAt(i).setIcon(tabIcon[i]);
         }
+
     }
 
     @Override

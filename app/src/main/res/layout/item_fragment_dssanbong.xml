@@ -1,68 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    android:padding="6dp">
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_centerVertical="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/img_item_dssanbong_hinhanh"/>
-        <!--<ImageButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@mipmap/icon_calling"-->
-            <!--android:background="#00fffefe"-->
-            <!--android:id="@+id/ibtn_item_dssanbong_lienlac"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"/>-->
+    android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-           android:layout_toRightOf="@id/img_item_dssanbong_hinhanh">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tên sân"
-                android:textSize="16sp"
-                android:textColor="#000"
-                android:id="@+id/tv_item_dssanbong_tensan"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Địa chỉ: "
-                    android:textColor="#292121"
-                    android:textSize="12sp"
-                    android:id="@+id/tv_item_dssanbong_diachi"/>
+    <ImageView
+        android:id="@+id/img_item_dssanbong_hinhanh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số điện thoại: "
-                    android:textColor="#292121"
-                    android:textSize="12sp"
-                    android:id="@+id/tv_item_dssanbong_sodienthoai"/>
+    <TextView
+        android:id="@+id/tv_item_dssanbong_tensan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Tên sân"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/img_item_dssanbong_hinhanh" />
 
-            </LinearLayout>
+    <TextView
+        android:id="@+id/tv_item_dssanbong_diachi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Địa chỉ: "
+        android:textColor="#292121"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/img_item_dssanbong_hinhanh"
+        app:layout_constraintStart_toStartOf="@id/tv_item_dssanbong_tensan"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_dssanbong_tensan" />
 
-        </LinearLayout>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_item_dssanbong_sodienthoai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại: "
+        android:textColor="#292121"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/img_item_dssanbong_hinhanh"
+        app:layout_constraintStart_toStartOf="@id/tv_item_dssanbong_diachi"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_dssanbong_diachi" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

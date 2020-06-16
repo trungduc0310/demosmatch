@@ -20,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView tv_chonanhdaidien;
     private CheckBox cb_showpass;
     private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
     private final int REQUEST_CODE_IMAGE = 1;
     private String real_path;
     private String anhdaidien=null;
@@ -103,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (!password.equals(repassword)) {
                         edt_repass.setError("Mật khẩu nhập lại không đúng");
                     } else {
+                        progressBar.setVisibility(View.INVISIBLE);
                         dangkyMySQL(username, email, password);
                     }
                 }
@@ -184,7 +187,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }catch (NullPointerException nullex){
                 id_nguoidung="user"+System.currentTimeMillis();
-                anhdaidien=APIUntils.base_url + "image/image_anhdaidien/baseuser.png";
+                anhdaidien=APIUntils.base_url + "image/image_anhdaidien/default.png";
                 DataClient dataClient1 = APIUntils.getData();
                 Call<String> callback = dataClient1.nguoidung_dangky(id_nguoidung,email, password, username,anhdaidien);
                 callback.enqueue(new Callback<String>() {
@@ -212,13 +215,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
+                    btn_register.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(RegisterActivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                 } else {
                     mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-//                                Toast.makeText(RegisterActivity.this, "Vui lòng kiểm tra email để xác thực tài khoản", Toast.LENGTH_SHORT).show();
                                     FirebaseUser user= mAuth.getCurrentUser();
                                     UserProfileChangeRequest request=new UserProfileChangeRequest.Builder()
                                         .setPhotoUri(Uri.parse(anhdaidien))
@@ -229,12 +233,10 @@ public class RegisterActivity extends AppCompatActivity {
                                         public void onSuccess(Void aVoid) {
                                             Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                             startActivity(intent);
-                                            onStop();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-//                                            Log.d("faildangkyfire", e.toString());
                                             Toast.makeText(RegisterActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                                         }
                                     });
@@ -260,6 +262,8 @@ public class RegisterActivity extends AppCompatActivity {
         img_anhdaidien = findViewById(R.id.img_dangky_avt);
         tv_chonanhdaidien = findViewById(R.id.tv_dangky_chonanhdaidien);
         cb_showpass=findViewById(R.id.cb_dangky_showpass);
+        progressBar=findViewById(R.id.progress_dangky);
+        progressBar.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
     }
 

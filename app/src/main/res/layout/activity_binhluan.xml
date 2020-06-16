@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
         android:id="@+id/ln_binhluan_back"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:layout_height="48dp"
         android:gravity="center|left">
         <ImageView
             android:clickable="true"
@@ -18,7 +17,7 @@
             android:layout_height="35dp"
             android:src="@drawable/ic_arrow_back_black_24dp"
             android:layout_margin="10dp"/>
-    </LinearLayout>
+    </FrameLayout>
     <ScrollView
         android:layout_below="@id/ln_binhluan_back"
         android:id="@+id/sv_binhluan_noidung"
@@ -32,48 +31,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/relative_infouser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp">
+
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_margin="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/img_binhluan_avtbaiviet"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:id="@+id/img_binhluan_avtbaiviet" />
-                    <LinearLayout
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintTop_toTopOf="@id/img_binhluan_avtbaiviet"
+                        app:layout_constraintStart_toEndOf="@id/img_binhluan_avtbaiviet"
+                        android:id="@+id/tv_binhluan_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="15dp"
-                        android:layout_toRightOf="@id/img_binhluan_avtbaiviet">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Trung Đức"
-                            android:textStyle="bold"
-                            android:textColor="#020202"
-                            android:id="@+id/tv_binhluan_username"
-                            android:textSize="16sp"/>
-                        <TextView
-                            android:textSize="10dp"
-                            android:textColor="#3A3434"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="10-11-2019"
-                            android:id="@+id/tv_binhluan_ngaythang"/>
-                    </LinearLayout>
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:text="Trung Đức"
+                        android:textColor="#020202"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        app:layout_constraintStart_toStartOf="@id/tv_binhluan_username"
+                        app:layout_constraintStart_toEndOf="@id/img_binhluan_avtbaiviet"
+                        app:layout_constraintTop_toBottomOf="@id/tv_binhluan_username"
+                        android:id="@+id/tv_binhluan_ngaythang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10-11-2019"
+                        android:textColor="#3A3434"
+                        android:textSize="10dp" />
+
                     <ImageButton
+                        app:layout_constraintTop_toTopOf="@id/tv_binhluan_username"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:id="@+id/imgbtn_binhluan_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_more_horiz_black_24dp"
-                        android:background="#00ffffff"/>
-
-                </RelativeLayout>
-
+                        android:background="#00ffffff"
+                        android:src="@drawable/ic_more_horiz_black_24dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:padding="5dp"

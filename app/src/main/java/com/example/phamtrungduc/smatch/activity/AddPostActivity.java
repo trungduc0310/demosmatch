@@ -214,7 +214,6 @@ public class AddPostActivity extends AppCompatActivity {
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-
                         String message = response.body();
                         if (message.length() > 0) {
                             anhbaiviet = APIUntils.base_url + "image/image_hinhanhbaiviet/" + message;
@@ -270,7 +269,7 @@ public class AddPostActivity extends AppCompatActivity {
                         Log.d("onFailurethemhabv:", t.getMessage());
                         pro_thembaiviet.setVisibility(View.GONE);
                         btn_insert.setVisibility(View.VISIBLE);
-                        Toast.makeText(AddPostActivity.this, "Chất lượng mạng quá yếu! Không thể thực hiện", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPostActivity.this, "Đường truyền kém, vui lòng thử lại", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -284,9 +283,7 @@ public class AddPostActivity extends AppCompatActivity {
                     public void onResponse(Call<String> call, Response<String> response) {
                         pro_thembaiviet.setVisibility(View.GONE);
                         btn_insert.setVisibility(View.VISIBLE);
-//                                String thongbao=response.body();
                         startActivity(new Intent(AddPostActivity.this, HomeActivity.class));
-//                                Log.d("thembaiviet", thongbao);
                     }
 
                     @Override

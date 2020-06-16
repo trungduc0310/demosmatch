@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".activity.LoginActivity">
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/img_logo"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/footballicon">
 
+    </ImageView>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/img_logo"
+        android:id="@+id/tv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Smatch"
+        android:textColor="#000"
+        android:textStyle="bold">
+    </TextView>
     <TextView
         android:id="@+id/tv_thongbao_internet_login"
         android:layout_width="match_parent"
@@ -17,37 +35,30 @@
         android:gravity="center"
         android:text="Không có kết nối Internet!"
         android:textColor="#ffffff" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:id="@+id/duongcong"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/duongcong"/>
 
     <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="15dp">
 
-            <ImageView
-                android:layout_width="150px"
-                android:layout_height="150px"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/footballicon">
 
-            </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="casual"
-                android:text="Smatch"
-                android:textColor="#000"
-                android:textStyle="bold">
-
-            </TextView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,71 +70,41 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Email:"
-                android:textColor="#EBFDFDFD"
-                android:textSize="20sp"
-                android:textStyle="bold">
 
-            </TextView>
 
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="7dp"
-                app:cardElevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edt_dangnhap_email"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_textview"
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_account_white"
+                android:drawablePadding="10sp"
+                android:focusable="true"
+                android:hint="Email"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                android:singleLine="true" />
 
-                <EditText
-                    android:id="@+id/edt_dangnhap_email"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background_textview"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/ic_account_white"
-                    android:drawablePadding="10sp"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="10dp"
-                    android:singleLine="true" />
-            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20sp"
-                android:layout_marginBottom="10dp"
-                android:text="Mật khẩu:"
-                android:textColor="#EBFDFDFD"
-                android:textSize="20sp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="7dp"
-                app:cardElevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edt_dangnhap_matkhau"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background_textview"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/ic_lock_white24dp"
-                    android:drawablePadding="10sp"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:singleLine="true" />
-            </androidx.cardview.widget.CardView>
+            <EditText
+                android:layout_marginTop="@dimen/largemargin"
+                android:hint="Password"
+                android:id="@+id/edt_dangnhap_matkhau"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_textview"
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_lock_white24dp"
+                android:drawablePadding="10sp"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <RelativeLayout
+                android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -131,7 +112,7 @@
 
                 <Button
                     android:id="@+id/btn_dangnhap"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/btn_dangnhap"
@@ -157,7 +138,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:text="Bạn chưa có tài khoản?"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/gray"
                 android:textStyle="bold" />
 
             <TextView
@@ -194,7 +175,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        android:text="Quên mật khẩu"
+                        android:text="@string/forgotpass"
                         android:textColor="#CA0909"
                         android:textStyle="italic" />
                 </LinearLayout>
@@ -202,6 +183,9 @@
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+
+
+</RelativeLayout>

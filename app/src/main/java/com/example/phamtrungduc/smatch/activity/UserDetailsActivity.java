@@ -21,6 +21,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -61,14 +62,13 @@ public class UserDetailsActivity extends AppCompatActivity {
     private EditText edt_ngaysinh;
     private CalendarView cld_ngaysinh;
     private Button btn_save;
-    private RadioButton rbtn_nam,rbtn_nu,rbtn_khac;
+    private RadioButton rbtn_nam, rbtn_nu, rbtn_khac;
     private ProgressBar pro_thongtin;
 
     private final int REQUEST_CODE_IMAGE = 1;
-    private String real_path="";
+    private String real_path = "";
     private String new_avt;
     private String old_avt;
-
 
 
     @Override
@@ -82,16 +82,15 @@ public class UserDetailsActivity extends AppCompatActivity {
 
 
     private void getData() {
-        old_avt= String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl());
-        String email=MyFirebaseMessagingService.mUser.getEmail();
-//        edt_email.setText(email);
-        old_avt=old_avt.substring(old_avt.lastIndexOf("/"));
+        old_avt = String.valueOf(MyFirebaseMessagingService.mUser.getPhotoUrl());
+        String email = MyFirebaseMessagingService.mUser.getEmail();
+        old_avt = old_avt.substring(old_avt.lastIndexOf("/"));
         getThongtinnguoidung(email);
     }
 
     private void getThongtinnguoidung(String email) {
-        DataClient dataClient= APIUntils.getData();
-        final Call<List<User>> callback= dataClient.get_nguoidung(email.trim());
+        DataClient dataClient = APIUntils.getData();
+        final Call<List<User>> callback = dataClient.get_nguoidung(email.trim());
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -101,40 +100,43 @@ public class UserDetailsActivity extends AppCompatActivity {
                         img_avt.post(new Runnable() {
                             @Override
                             public void run() {
-                                List<User> thongtinnguoidung=response.body();
+                                List<User> thongtinnguoidung = response.body();
                                 Log.d("getData", thongtinnguoidung.get(0).getTennguoidung());
                                 edt_username.setText(thongtinnguoidung.get(0).getTennguoidung());
                                 edt_email.setText(thongtinnguoidung.get(0).getEmail());
                                 try {
                                     edt_diachi.setText(thongtinnguoidung.get(0).getDiachi());
-                                }catch (NullPointerException nullex){
+                                } catch (NullPointerException nullex) {
                                     edt_diachi.setText("");
                                 }
                                 try {
-                                    String[]xuly=thongtinnguoidung.get(0).getNgaysinh().split("\\-");
-                                    String ngaythang=xuly[2]+"-"+xuly[1]+"-"+xuly[0];
+                                    String[] xuly = thongtinnguoidung.get(0).getNgaysinh().split("\\-");
+                                    String ngaythang = xuly[2] + "-" + xuly[1] + "-" + xuly[0];
                                     edt_ngaysinh.setText(ngaythang);
 
-                                    Calendar calendar=Calendar.getInstance();
-                                    calendar.set(Integer.parseInt(xuly[0])-0,Integer.parseInt(xuly[1])-1,Integer.parseInt(xuly[2])-0);
+                                    Calendar calendar = Calendar.getInstance();
+                                    calendar.set(Integer.parseInt(xuly[0]) - 0, Integer.parseInt(xuly[1]) - 1, Integer.parseInt(xuly[2]) - 0);
                                     cld_ngaysinh.setDate(calendar.getTime().getTime());
-                                }catch (NullPointerException nullex){
+                                } catch (NullPointerException nullex) {
                                     edt_ngaysinh.setText("");
 
                                 }
                                 try {
-                                    if (thongtinnguoidung.get(0).getGioitinh().equals("Nam")) rbtn_nam.setChecked(true);
-                                    else if (thongtinnguoidung.get(0).getGioitinh().equals("Nữ")) rbtn_nu.setChecked(true);
-                                    else if (thongtinnguoidung.get(0).getGioitinh().equals("Khác")) rbtn_khac.setChecked(true);
-                                }catch (NullPointerException nullex){
+                                    if (thongtinnguoidung.get(0).getGioitinh().equals("Nam"))
+                                        rbtn_nam.setChecked(true);
+                                    else if (thongtinnguoidung.get(0).getGioitinh().equals("Nữ"))
+                                        rbtn_nu.setChecked(true);
+                                    else if (thongtinnguoidung.get(0).getGioitinh().equals("Khác"))
+                                        rbtn_khac.setChecked(true);
+                                } catch (NullPointerException nullex) {
 
                                 }
                                 try {
-                                    Picasso.with(UserDetailsActivity.this).load(thongtinnguoidung.get(0).getAnhdaidien())
+                                    Picasso.with(UserDetailsActivity.this).load(MyFirebaseMessagingService.mUser.getPhotoUrl())
                                             .placeholder(R.drawable.ic_image_black_24dp)
                                             .error(R.drawable.ic_broken_image_black_24dp)
                                             .into(img_avt);
-                                }catch (NullPointerException nullex){
+                                } catch (NullPointerException nullex) {
 
                                 }
                             }
@@ -176,81 +178,87 @@ public class UserDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pro_thongtin.setVisibility(View.VISIBLE);
                 v.setVisibility(View.INVISIBLE);
-                String username=edt_username.getText().toString();
-                String gioitinh="";
-                String diachi=edt_diachi.getText().toString();
+                String username = edt_username.getText().toString();
+                String gioitinh = "";
+                String diachi = edt_diachi.getText().toString();
+                String ngaysinh="";
+                if (edt_ngaysinh.getText().toString().length()>0) {
+                   try{
+                       String[] date = edt_ngaysinh.getText().toString().split("-");
+                       ngaysinh = date[2] + "-" + date[1] + "-" + date[0];
+                   }catch (ArrayIndexOutOfBoundsException ex){
+                       edt_ngaysinh.setError("Ngày sinh không đúng định dạng dd-mm-yyyy");
+                   }
+                }
+                else{
+                    ngaysinh="2000-01-01";
+                }
+                String email = MyFirebaseMessagingService.mUser.getEmail();
+                if (rbtn_nu.isChecked()) gioitinh = "Nữ";
+                else if (rbtn_nam.isChecked()) gioitinh = "Nam";
+                else if (rbtn_khac.isChecked()) gioitinh = "Khác";
+                else gioitinh = "";
+                UpdateMySQL(email, username, gioitinh, diachi, ngaysinh);
 
-                String[] xuly=edt_ngaysinh.getText().toString().split("\\-");
-                String ngaysinh=xuly[2]+"-"+xuly[1]+"-"+xuly[0];
 
-                String email=MyFirebaseMessagingService.mUser.getEmail();
-                if (rbtn_nu.isChecked()) gioitinh="Nữ";
-                else if (rbtn_nam.isChecked()) gioitinh="Nam";
-                else if (rbtn_khac.isChecked()) gioitinh="Khác";
-                else gioitinh="";
-                UpdateMySQL(email,username,gioitinh,diachi,ngaysinh);
             }
         });
     }
 
     private void UpdateMySQL(final String email, final String username, final String gioitinh, final String diachi, final String ngaysinh) {
-        try{
-                File file = new File(real_path);
-                String file_path = file.getAbsolutePath();
-                String[] mangtenFile = file_path.split("\\.");
-                file_path = mangtenFile[0] + "_anhdaidien_" + System.currentTimeMillis() + "." + mangtenFile[1];
-                Log.d("anhdaidien", file_path);
+        try {
+            File file = new File(real_path);
+            String file_path = file.getAbsolutePath();
+            String[] mangtenFile = file_path.split("\\.");
+            file_path = mangtenFile[0] + "_anhdaidien_" + System.currentTimeMillis() + "." + mangtenFile[1];
+            Log.d("anhdaidiencu", old_avt);
+            Log.d("anhdaidien", file_path);
 
-                RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-                MultipartBody.Part mulPart = MultipartBody.Part.createFormData("uploaded_file", file_path, requestBody);
+            RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            MultipartBody.Part mulPart = MultipartBody.Part.createFormData("uploaded_file", file_path, requestBody);
 
-                final DataClient dataClient = APIUntils.getData();
-                Call<String> callback = dataClient.uploadImg_anhdaidien(mulPart);
-                callback.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        String message = response.body();
-                        Log.d("src_anhdaidienmoi", message);
-                        if (message.length() > 0) {
-                            new_avt = APIUntils.base_url + "image/image_anhdaidien/" + message;
-                            DataClient dataClient1 = APIUntils.getData();
-                            Call<String> callback= dataClient1.nguoidung_capnhathoso(email,username,gioitinh,diachi,ngaysinh,old_avt,new_avt);
-                            callback.enqueue(new Callback<String>() {
-                                @Override
-                                public void onResponse(Call<String> call, Response<String> response) {
-                                    String mess=response.body();
-                                    Log.d("capnhat1", mess);
-                                    if (mess.equals("success")){
-                                        UpdateFirebase1(username,new_avt);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<String> call, Throwable t) {
-                                    Log.d("capnhatfail", t.getMessage());
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-                        Log.d("uploadanhfail", t.getMessage());
-                    }
-                });
-
-
-        }catch (ArrayIndexOutOfBoundsException nullex){
-            Log.d("null", real_path);
-            DataClient dataClient1 = APIUntils.getData();
-            Call<String> callback= dataClient1.nguoidung_capnhathoso(email,username,gioitinh,diachi,ngaysinh,old_avt,"");
+            final DataClient dataClient = APIUntils.getData();
+            Call<String> callback = dataClient.uploadImg_anhdaidien(mulPart);
             callback.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
+                    String message = response.body();
+                    if (message.length() > 0) {
+                        new_avt = APIUntils.base_url + "image/image_anhdaidien/" + message;
+                        DataClient dataClient1 = APIUntils.getData();
+                        Call<String> callback = dataClient1.nguoidung_capnhathoso(email, username, gioitinh, diachi, ngaysinh, old_avt, new_avt);
+                        Log.d("thongtinupdate: ", email + "\n" + username + "\n" + gioitinh + "\n" + ngaysinh + "\n" + diachi +
+                                "\noldavt: " + old_avt + "\nnewavt: " + new_avt);
+                        callback.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                UpdateFirebase1(username, new_avt);
+                            }
 
-                    String mess=response.body();
-                    Log.d("capnhat2", mess);
-                    if (mess.equals("success")){
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Log.d("capnhatfail", t.getMessage());
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    Log.d("uploadanhfail", t.getMessage());
+                }
+            });
+
+
+        } catch (ArrayIndexOutOfBoundsException nullex) {
+            Log.d("null", real_path);
+            DataClient dataClient1 = APIUntils.getData();
+            Call<String> callback = dataClient1.nguoidung_capnhathoso(email, username, gioitinh, diachi, ngaysinh, old_avt, "");
+            callback.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    String mess = response.body();
+                    if (mess.equals("success")) {
                         UpdateFirebase2(username);
                     }
                 }
@@ -265,7 +273,7 @@ public class UserDetailsActivity extends AppCompatActivity {
     }
 
     private void UpdateFirebase2(String username) {
-        UserProfileChangeRequest request=new UserProfileChangeRequest.Builder()
+        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
                 .setDisplayName(username)
                 .build();
         MyFirebaseMessagingService.mUser.updateProfile(request).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -273,7 +281,7 @@ public class UserDetailsActivity extends AppCompatActivity {
             public void onSuccess(Void aVoid) {
                 pro_thongtin.setVisibility(GONE);
                 btn_save.setVisibility(View.VISIBLE);
-                startActivity(new Intent(UserDetailsActivity.this,HomeActivity.class));
+                startActivity(new Intent(UserDetailsActivity.this, HomeActivity.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -284,42 +292,42 @@ public class UserDetailsActivity extends AppCompatActivity {
     }
 
     private void UpdateFirebase1(String username, String new_avt) {
-            UserProfileChangeRequest request=new UserProfileChangeRequest.Builder()
-                    .setPhotoUri(Uri.parse(new_avt))
-                    .setDisplayName(username)
-                    .build();
-            MyFirebaseMessagingService.mUser.updateProfile(request).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    pro_thongtin.setVisibility(GONE);
-                    btn_save.setVisibility(View.VISIBLE);
-                    startActivity(new Intent(UserDetailsActivity.this,HomeActivity.class));
-                    onStop();
+        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
+                .setPhotoUri(Uri.parse(new_avt))
+                .setDisplayName(username)
+                .build();
+        MyFirebaseMessagingService.mUser.updateProfile(request).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                pro_thongtin.setVisibility(GONE);
+                btn_save.setVisibility(View.VISIBLE);
+                startActivity(new Intent(UserDetailsActivity.this, HomeActivity.class));
+                onStop();
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(UserDetailsActivity.this, "Cập nhật fb thất bại", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(UserDetailsActivity.this, "Cập nhật fb thất bại", Toast.LENGTH_SHORT).show();
 
-                }
-            });
+            }
+        });
     }
 
     private void AnhXa() {
-        img_back=findViewById(R.id._img_thongtinnguoidung_back);
-        img_avt=findViewById(R.id.img_thongtinnguoidung_hinhanh);
-        tv_changeavt=findViewById(R.id.tv_thongtinnguoidung_changeavt);
-        edt_username=findViewById(R.id.edt_thongtinnguoidung_content_ten);
-        edt_email=findViewById(R.id.edt_thongtinnguoidung_content_email);
-        edt_diachi=findViewById(R.id.edt_thongtinnguoidung_content_diachi);
-        edt_ngaysinh=findViewById(R.id.edt_thongtinnguoidung_ngaysinh);
-        cld_ngaysinh=findViewById(R.id.cld_thongtinnguoidung);
-        btn_save=findViewById(R.id.btn_thongtinnguoidung_save);
-        rbtn_nam=findViewById(R.id.radio_thongtinnguoidung_nam);
-        rbtn_nu=findViewById(R.id.radio_thongtinnguoidung_nu);
-        rbtn_khac=findViewById(R.id.radio_thongtinnguoidung_khac);
-        pro_thongtin=findViewById(R.id.progress_thongtinnguoidung);
+        img_back = findViewById(R.id._img_thongtinnguoidung_back);
+        img_avt = findViewById(R.id.img_thongtinnguoidung_hinhanh);
+        tv_changeavt = findViewById(R.id.tv_thongtinnguoidung_changeavt);
+        edt_username = findViewById(R.id.edt_thongtinnguoidung_content_ten);
+        edt_email = findViewById(R.id.edt_thongtinnguoidung_content_email);
+        edt_diachi = findViewById(R.id.edt_thongtinnguoidung_content_diachi);
+        edt_ngaysinh = findViewById(R.id.edt_thongtinnguoidung_ngaysinh);
+        cld_ngaysinh = findViewById(R.id.cld_thongtinnguoidung);
+        btn_save = findViewById(R.id.btn_thongtinnguoidung_save);
+        rbtn_nam = findViewById(R.id.radio_thongtinnguoidung_nam);
+        rbtn_nu = findViewById(R.id.radio_thongtinnguoidung_nu);
+        rbtn_khac = findViewById(R.id.radio_thongtinnguoidung_khac);
+        pro_thongtin = findViewById(R.id.progress_thongtinnguoidung);
         pro_thongtin.setVisibility(View.INVISIBLE);
     }
 

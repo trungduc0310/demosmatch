@@ -35,14 +35,13 @@ public class OptionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_tuychon,container,false);
         Anhxa(view);
-
+        getProfile();
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        getProfile();
         EventClick();
     }
 

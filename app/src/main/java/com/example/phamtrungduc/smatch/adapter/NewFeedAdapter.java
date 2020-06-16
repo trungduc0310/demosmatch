@@ -47,7 +47,6 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
 
     }
 
-
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = new ViewHolder();
@@ -75,8 +74,6 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
         viewHolder.tvdate.setText(mList.get(position).getThoigian());
 
         Picasso.with(mContext).load(mList.get(position).getAnhdaidien())
-                .error(R.drawable.ic_broken_image_black_24dp)
-                .placeholder(R.drawable.ic_image_black_24dp)
                 .into(viewHolder.imgavt);
         viewHolder.tvuser.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -110,8 +107,6 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
             finalViewHolder1.img_hinhanhbaiviet.setImageResource(R.drawable.footballicon);
         } else {
             Picasso.with(mContext).load(hinhanh)
-                    .error(R.drawable.ic_broken_image_black_24dp)
-                    .placeholder(R.drawable.ic_image_black_24dp)
                     .into(finalViewHolder1.img_hinhanhbaiviet);
         }
 
@@ -130,8 +125,6 @@ public class NewFeedAdapter extends ArrayAdapter<Post> {
             View view = inflater.inflate(R.layout.dialog_xemhinhanh, null);
             ImageView imgview_dialog = view.findViewById(R.id.img_dialogxemanh_img);
             Picasso.with(getContext()).load(hinhanh)
-                    .placeholder(R.drawable.ic_image_black_24dp)
-                    .error(R.drawable.ic_broken_image_black_24dp)
                     .into(imgview_dialog);
             AlertDialog.Builder diaBuilder = new AlertDialog.Builder(getContext());
             diaBuilder.setView(view);

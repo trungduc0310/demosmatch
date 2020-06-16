@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:orientation="horizontal"
         android:gravity="center|left">
         <ImageView
@@ -22,13 +22,6 @@
             android:layout_height="35dp"
             android:src="@drawable/ic_arrow_back_black_24dp"
             android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đổi mật khẩu"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:textColor="#00cccb"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
